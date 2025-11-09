@@ -1,0 +1,14 @@
+# Dependencies
+**/node_modules
+/apps/*/node_modules
+/packages/*/node_modules
+
+# Build artifacts
+/dist
+/apps/*/dist
+
+# Environment
+.env
+/apps/*/.env 
+.env.development
+.env.production
