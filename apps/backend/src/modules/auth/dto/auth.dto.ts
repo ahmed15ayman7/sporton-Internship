@@ -1,9 +1,6 @@
 import { User } from '@shared/prisma';
 
-export type RegisterDTO = Omit<
-  User,
-  'id' | 'createdAt' | 'isDeleted' | 'updatedAt'
->;
+export type RegisterDTO = Omit<User, 'id' | 'createdAt' | 'isDeleted'>;
 
 export type UserResponseDTO = {
   token: string;

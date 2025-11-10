@@ -8,14 +8,34 @@ import {
   Query,
 } from '@nestjs/common';
 import { ContactService } from './contact.service';
-import { ContactDTO } from './dto/contact.dto';
+import { ContactDTO, ContactUpdateDTO } from './dto/contact.dto';
 import { PaginationQueryType } from 'src/types/util.types';
+import { IsPublic } from 'src/decorators/public.decorator';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
 
+@ApiTags('Contact')
 @Controller('contact')
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
 
   @Post()
+  @IsPublic(true)
+  @ApiOperation({ summary: 'Create a new contact message' })
+  @ApiBody({
+    description: 'Contact message data',
+    schema: {
+      type: 'object',
+      properties: {
+        name: { type: 'string', example: 'John Doe' },
+        email: { type: 'string', example: 'john@example.com' },
+        subject: { type: 'string', example: 'Service Inquiry' },
+        message: { type: 'string', example: 'I would like to inquire about...' },
+      },
+      required: ['name', 'email', 'message'],
+    },
+  })
+  @ApiResponse({ status: 201, description: 'Message sent successfully' })
+  @ApiResponse({ status: 400, description: 'Invalid data' })
   create(
     @Body()
     contactDto: ContactDTO,
@@ -24,17 +44,42 @@ export class ContactController {
   }
 
   @Get()
+  @ApiBearerAuth('JWT-auth')
+  @ApiOperation({ summary: 'Get all contact messages' })
+  @ApiQuery({ name: 'page', required: false, type: Number, example: 1 })
+  @ApiQuery({ name: 'limit', required: false, type: Number, example: 10 })
+  @ApiResponse({ status: 200, description: 'Messages retrieved successfully' })
   findAll(@Query() query: PaginationQueryType) {
     return this.contactService.findAll(query);
   }
 
   @Get(':id')
+  @ApiBearerAuth('JWT-auth')
+  @ApiOperation({ summary: 'Get a specific contact message' })
+  @ApiParam({ name: 'id', description: 'Message ID' })
+  @ApiResponse({ status: 200, description: 'Message retrieved successfully' })
+  @ApiResponse({ status: 404, description: 'Message not found' })
   findOne(@Param('id') id: string) {
     return this.contactService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body('status') status: string) {
-    return this.contactService.update(id, status);
+  @ApiBearerAuth('JWT-auth')
+  @ApiOperation({ summary: 'Update contact message status' })
+  @ApiParam({ name: 'id', description: 'Message ID' })
+  @ApiBody({
+    description: 'New message status',
+    schema: {
+      type: 'object',
+      properties: {
+        status: { type: 'string', example: 'READ' },
+      },
+      required: ['status'],
+    },
+  })
+  @ApiResponse({ status: 200, description: 'Message updated successfully' })
+  @ApiResponse({ status: 404, description: 'Message not found' })
+  update(@Param('id') id: string, @Body() contactUpdateDto: ContactUpdateDTO) {
+    return this.contactService.update(id, contactUpdateDto);
   }
 }
