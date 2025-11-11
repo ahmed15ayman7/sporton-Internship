@@ -12,6 +12,7 @@ import { ContactDTO, ContactUpdateDTO } from './dto/contact.dto';
 import { PaginationQueryType } from 'src/types/util.types';
 import { IsPublic } from 'src/decorators/public.decorator';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { CreateContactUsDto } from '../../dtos/ContactUs.create.dto';
 
 @ApiTags('Contact')
 @Controller('contact')
@@ -38,7 +39,7 @@ export class ContactController {
   @ApiResponse({ status: 400, description: 'Invalid data' })
   create(
     @Body()
-    contactDto: ContactDTO,
+    contactDto: CreateContactUsDto,
   ) {
     return this.contactService.create(contactDto);
   }

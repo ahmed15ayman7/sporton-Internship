@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { RegisterDTO, UserResponseDTO } from '../auth/dto/auth.dto';
 import { DatabaseService } from '../database/database.service';
 import { removeFields } from '../utils/object.util';
-import { User } from '@shared/prisma';
+import { User, UserStatus } from '@shared/prisma';
 import {
   PaginationQueryType,
   PaginationResponseType,
@@ -70,7 +70,7 @@ export class UserService {
   delete(id: string) {
     return this.prismaService.user.update({
       where: { id },
-      data: { isDeleted: true },
+      data: { status: UserStatus.BANNED },
     });
   }
 
