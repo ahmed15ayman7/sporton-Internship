@@ -1,6 +1,5 @@
 "use client";
-import { Button } from "@sporton/ui/button";
-import { Input } from "@sporton/ui/input";
+import { Button, Input } from "@sporton/ui";
 import { useState } from 'react';
 
 export default function AuthPage() {

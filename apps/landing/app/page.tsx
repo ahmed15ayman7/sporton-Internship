@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Button } from "@sporton/ui/button";
-import { Input } from "@sporton/ui/input";
+import { Button, Input } from "@sporton/ui";
 export default function LandingPage() {
   const [message, setMessage] = useState('');
 

@@ -1,28 +1,238 @@
 @import "tailwindcss";
-@source "../../../packages/ui/src/*.{ts,tsx,js,jsx,mdx}";
+@source "../../../packages/ui/components/*.{ts,tsx,js,jsx,mdx}";
 
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary-main: hsl(var(--primary-main));
+  --color-primary-light: hsl(var(--primary-light));
+  --color-primary-dark: hsl(var(--primary-dark));
+  
+  --color-secondary-main: hsl(var(--secondary-main));
+  --color-secondary-light: hsl(var(--secondary-light));
+  --color-secondary-dark: hsl(var(--secondary-dark));
+  --radius: 0.5rem;
+  --breakpoint-*:initial;
+  --breakpoint-xs: 400px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* 🎨 ألوانك هنا */
+    --primary: 255 60% 51%; /* #623ACF */
+    --primary-foreground: 210 40% 98%; /* تقريباً أبيض */
+
+    --secondary: 33 92% 54%; /* #F7911C */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* غامق */
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 255 60% 51%;
+
+    --radius: 0.5rem;
+    --primary-main: 255, 57%, 52%;
+    --primary-light: 246, 32%, 65%;
+    --primary-dark: 246, 91%, 65%;
+    
+    --secondary-main: 33, 92%, 54%;
+    --secondary-light: 33, 89%, 62%;
+    --secondary-dark: 33, 100%, 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* 🎨 نفس ألوانك لكن على خلفية غامقة */
+    --primary: 255 60% 51%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 33 92% 54%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 255 60% 51%;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-200;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* @font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+} */
+
+@layer components {
+  .glass-card {
+    @apply bg-card text-foreground backdrop-blur-sm rounded-lg border shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary px-4 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary px-4 py-2 rounded-lg transition-colors;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body { margin: 0; padding: 0; }
+
+.toast-container {
+  @apply fixed top-4 right-4 z-50 flex flex-col gap-2;
+}
+
+.toast {
+  @apply relative flex items-center gap-3 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg;
+  @apply min-w-[300px] max-w-[400px];
+}
+
+.toast-success {
+  @apply border-l-4 border-green-500;
+}
+
+.toast-error {
+  @apply border-l-4 border-red-500;
+}
+
+.toast-warning {
+  @apply border-l-4 border-yellow-500;
+}
+
+.toast-info {
+  @apply border-l-4 border-blue-500;
+}
+
+.toast-icon {
+  @apply flex-shrink-0;
+}
+
+.toast-content {
+  @apply flex-1;
+}
+
+.toast-title {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.toast-message {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.toast-close {
+  @apply flex-shrink-0 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300;
+}
+
+.toast-progress {
+  @apply absolute bottom-0 left-0 h-1 bg-current opacity-20;
+  @apply transition-all duration-100 ease-linear;
+} 
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+.animate-slideUp {
+  animation: slideUp 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.flag-dropdown{
+  border: none !important;
+  border-right: 1px solid #cacaca !important;
+}
+.react-tel-input .form-control{
+  border: none !important;
+  width: 100% !important;
+  padding:  10px 10px 10px 48px !important;
+  height: 100% !important;
+}
+.react-tel-input .selected-flag, .flag-dropdown {
+  border-radius: 5px 0 0 5px !important;
 }
