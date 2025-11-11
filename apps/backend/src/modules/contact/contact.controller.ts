@@ -8,11 +8,12 @@ import {
   Query,
 } from '@nestjs/common';
 import { ContactService } from './contact.service';
-import { ContactDTO, ContactUpdateDTO } from './dto/contact.dto';
+
 import { PaginationQueryType } from 'src/types/util.types';
 import { IsPublic } from 'src/decorators/public.decorator';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { CreateContactUsDto } from '../../dtos/ContactUs.create.dto';
+import { UpdateContactUsDto } from '../../dtos/ContactUs.update.dto';
 
 @ApiTags('Contact')
 @Controller('contact')
@@ -80,7 +81,7 @@ export class ContactController {
   })
   @ApiResponse({ status: 200, description: 'Message updated successfully' })
   @ApiResponse({ status: 404, description: 'Message not found' })
-  update(@Param('id') id: string, @Body() contactUpdateDto: ContactUpdateDTO) {
+  update(@Param('id') id: string, @Body() contactUpdateDto: UpdateContactUsDto) {
     return this.contactService.update(id, contactUpdateDto);
   }
 }

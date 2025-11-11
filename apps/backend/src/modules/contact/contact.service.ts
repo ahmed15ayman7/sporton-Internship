@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
 import { ContactUs } from '@shared/prisma';
-import {  ContactUpdateDTO } from './dto/contact.dto';
 import { CreateContactUsDto } from '../../dtos/ContactUs.create.dto';
 
 import {
@@ -9,6 +8,7 @@ import {
   PaginationResponseType,
 } from 'src/types/util.types';
 import { removeFields } from '../utils/object.util';
+import { UpdateContactUsDto } from '../../dtos/ContactUs.update.dto';
 
 @Injectable()
 export class ContactService {
@@ -43,7 +43,7 @@ export class ContactService {
     return this.prismaService.contactUs.findUnique({ where: { id } });
   }
 
-  async update(id: string, contactUpdateDto: ContactUpdateDTO) {
+  async update(id: string, contactUpdateDto: UpdateContactUsDto) {
     return this.prismaService.contactUs.update({
       where: { id },
       data: contactUpdateDto,

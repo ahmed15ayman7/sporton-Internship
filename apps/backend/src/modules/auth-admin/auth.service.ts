@@ -4,6 +4,7 @@ import { LoginDTO, RegisterDTO, UserResponseDTO } from './dto/auth.dto';
 import * as argon from 'argon2';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { UserStatus } from '@shared/prisma';
 
 @Injectable()
 export class AuthService {
@@ -34,8 +35,8 @@ export class AuthService {
     // find user by email
     const foundUser = await this.userService.findByEmailOrThrow(loginDto.email);
 
-    if (foundUser.isDeleted) {
-      throw new UnauthorizedException('Invalid credentials');
+    if (foundUser.status === UserStatus.BANNED) {
+      throw new UnauthorizedException('User is banned');
     }
     // verify password with argon
     const isPasswordValid = await this.verifyPassword(
