@@ -7,7 +7,7 @@
         "./*"
       ],
       "@sporton/ui": [
-        "../../packages/ui/src"
+        "../../packages/ui/components"
       ]
     }
   },

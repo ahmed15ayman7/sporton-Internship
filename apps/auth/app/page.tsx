@@ -1,10 +1,17 @@
 "use client";
-import { Button, Input } from "@sporton/ui";
-import { useState } from 'react';
+import { Button } from "@sporton/ui/components/button";
+import { Input } from "@sporton/ui/components/input";
 
+import { useState } from 'react';
+import { authApi } from "@sporton/apis";
 export default function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  let login = async () => {
+    let response = await authApi.login({ email, password, rememberMe });
+    console.log(response);
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -14,7 +21,7 @@ export default function AuthPage() {
         <div className="my-2" />
         <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <div className="my-4" />
-        <Button onClick={() => alert(`Logging in as ${email}`)} className="w-full">Sign In</Button>
+        <Button onClick={login} className="w-full">Sign In</Button>
       </div>
     </div>
   );

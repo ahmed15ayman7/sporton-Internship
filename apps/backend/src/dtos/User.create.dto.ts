@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Role } from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";
 @Entity()
@@ -18,6 +19,11 @@ export class CreateUserDto {
   // Field: password, Type: string
   @Column()
   password: string;
+
+  @ApiProperty({ enum: Role })
+  // Field: role, Type: Role
+  @Column()
+  role: Role;
 
   @ApiProperty({ type: "string", format: "date-time" })
   // Field: createdAt, Type: Date

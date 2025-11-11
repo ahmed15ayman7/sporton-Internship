@@ -25,11 +25,23 @@ model User {
   name        String       @db.VarChar(255)
   email       String       @unique @db.VarChar(255)
   password    String       @db.VarChar(255)   
+  role        Role         
   createdAt   DateTime     @default(now()) @map("created_at")
   isDeleted   Boolean      @default(false) @map("is_deleted")
 
   @@map("users")
 }
+enum Role {
+  PLAYER
+  COACH
+  AGENT
+  CLUB
+  COMPANY
+  SCOUT
+  TRAINER
+  GUEST
+}
+
 
 model Contact {
   id        String   @id @default(cuid())

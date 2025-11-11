@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import api, { API_URL , ApiClient } from "./index";
 import axios from "axios";
+import { User } from "@sporton/interfaces";
 export interface PaginatedResponse<T> {
     data: T[];
     meta: {

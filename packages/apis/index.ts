@@ -186,7 +186,6 @@ export const authApi = {
   setAccessTokenToCookieServer: serverActions.setAccessTokenToCookieServer,
   getAccessTokenFromCookieServer: serverActions.getAccessTokenFromCookieServer,
   getRefreshTokenFromCookieServer: serverActions.getRefreshTokenFromCookieServer,
-  
 }
 
 //!! Auth Api's End
