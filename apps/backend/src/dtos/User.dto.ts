@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Role } from "@shared/prisma";
+import { NotificationEntity } from "./Notification.entity";
+import { Role, UserStatus, Sport, Notification } from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";
 @Entity()
@@ -11,14 +12,14 @@ export class UserDto {
   id: string;
 
   @ApiProperty({ type: "string" })
-  // Field: name, Type: string
-  @Column()
-  name: string;
-
-  @ApiProperty({ type: "string" })
   // Field: email, Type: string
   @Column()
   email: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: phone, Type: string
+  @Column()
+  phone?: string;
 
   @ApiProperty({ type: "string" })
   // Field: password, Type: string
@@ -30,13 +31,83 @@ export class UserDto {
   @Column()
   role: Role;
 
+  @ApiProperty({ enum: UserStatus })
+  // Field: status, Type: UserStatus
+  @Column()
+  status: UserStatus;
+
   @ApiProperty({ type: "string", format: "date-time" })
   // Field: createdAt, Type: Date
   @Column()
   createdAt: Date;
 
-  @ApiProperty({ type: "boolean" })
-  // Field: isDeleted, Type: boolean
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: updatedAt, Type: Date
   @Column()
-  isDeleted: boolean;
+  updatedAt: Date;
+
+  @ApiProperty({ type: "string", format: "date-time", nullable: true })
+  // Field: lastLogin, Type: Date
+  @Column()
+  lastLogin?: Date;
+
+  @ApiProperty({ type: "string" })
+  // Field: name, Type: string
+  @Column()
+  name: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: image, Type: string
+  @Column()
+  image?: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: cover, Type: string
+  @Column()
+  cover?: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: country, Type: string
+  @Column()
+  country?: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: city, Type: string
+  @Column()
+  city?: string;
+
+  @ApiProperty({ type: "string", nullable: true })
+  // Field: language, Type: string
+  @Column()
+  language?: string;
+
+  @ApiProperty({ enum: Sport, nullable: true })
+  // Field: sport, Type: Sport
+  @Column()
+  sport?: Sport;
+
+  @ApiProperty({ type: "boolean" })
+  // Field: isOnline, Type: boolean
+  @Column()
+  isOnline: boolean;
+
+  @ApiProperty({ type: "boolean" })
+  // Field: isChoseRole, Type: boolean
+  @Column()
+  isChoseRole: boolean;
+
+  @ApiProperty({ type: "boolean" })
+  // Field: isProfileCompleted, Type: boolean
+  @Column()
+  isProfileCompleted: boolean;
+
+  @ApiProperty({ type: NotificationEntity })
+  // Field: notifications, Type: Notification[]
+  @Column()
+  notifications: Notification[];
+
+  @ApiProperty({ type: NotificationEntity })
+  // Field: notificationsSender, Type: Notification[]
+  @Column()
+  notificationsSender: Notification[];
 }

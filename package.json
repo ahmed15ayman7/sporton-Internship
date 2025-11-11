@@ -21,7 +21,10 @@
     "la:s": "cd apps/landing && npm run start && cd ../..",
     "api:d": "cd apps/backend && npm run dev && cd ../..",
     "api:b": "cd apps/backend && npm run build && cd ../..",
-    "api:s": "cd apps/backend && npm run start && cd ../.."
+    "api:s": "cd apps/backend && npm run start && cd ../..",
+    "app:d": "au:d&&la:d&&api:d",
+    "app:b": "au:b&&la:b&&api:b",
+    "app:s": "au:s&&la:s&&api:s"
   },
   "keywords": [],
   "author": "",

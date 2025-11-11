@@ -1,4 +1,4 @@
-import { Contact, User } from '@sporton/interfaces';
+import { ContactUs, User } from '@sporton/interfaces';
 import { PaginationInterface } from './serverActions';
 /**
 * توثيق نقاط النهاية API
@@ -70,7 +70,7 @@ export class ApiClient {
     }),
   }
   static contact = {
-    createContact: (data: Contact) => ({
+    createContact: (data: ContactUs) => ({
       method: 'POST',
       path:  '/contact/create',
       description: 'إنشاء الاتصال'
