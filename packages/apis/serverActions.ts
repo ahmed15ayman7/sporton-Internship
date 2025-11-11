@@ -87,3 +87,8 @@ export async function logout() {
   await logoutServer();
   redirect('/login');
 }
+export async function findUserById(id: string) {
+  let {path} = ApiClient.user.findUserById(id);
+  const response = await api.get(path);
+  return response.data;
+}

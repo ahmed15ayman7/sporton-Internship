@@ -21,15 +21,57 @@ datasource db {
 
 
 model User {
-  id          String       @id @default(cuid()) 
-  name        String       @db.VarChar(255)
-  email       String       @unique @db.VarChar(255)
-  password    String       @db.VarChar(255)   
-  role        Role         
-  createdAt   DateTime     @default(now()) @map("created_at")
-  isDeleted   Boolean      @default(false) @map("is_deleted")
-
-  @@map("users")
+  id        String     @id @default(cuid())
+  email     String     @unique // البريد الإلكتروني
+  phone     String?      // رقم الهاتف
+  password  String // كلمة المرور (مشفرة)
+  role      Role // نوع المستخدم
+  status    UserStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  lastLogin DateTime? // آخر تسجيل دخول
+  // البيانات المشتركة
+  name      String // الاسم
+  image     String? // الصورة الشخصية
+  cover     String? // الغلاف الشخصي
+  country   String? // الدولة
+  city      String? // المدينة
+  language  String? // اللغة المفضلة
+  sport     Sport? // الرياضة المفضلة
+  isOnline  Boolean @default(false)
+  isChoseRole Boolean @default(false)
+  isProfileCompleted Boolean @default(false)
+  notifications Notification[] // الإشعارات
+  notificationsSender Notification[] @relation("NotificationSender")
+}
+enum UserStatus {
+  ACTIVE // نشط
+  INACTIVE // غير نشط
+  SUSPENDED // موقوف
+  BANNED // محظور
+  PENDING // في انتظار التفعيل
+}
+enum Sport {
+  FOOTBALL
+  RUNNING
+  TENNIS
+  BASKETBALL
+  SWIMMING
+  KARATE
+  DIVING
+  FITNESS
+  HORSE_RIDING
+  CYCLING
+  SKATING
+  HANDBALL
+  GOLF
+  HOCKEY
+  CHESS
+  KUNG_FU
+  BOXING
+  BOWLING
+  VOLLEYBALL
+  LONG_JUMP
 }
 enum Role {
   PLAYER
@@ -41,18 +83,127 @@ enum Role {
   TRAINER
   GUEST
 }
-
-
-model Contact {
+model Admin {
   id        String   @id @default(cuid())
-  name      String   @db.VarChar(255)
-  email     String   @unique @db.VarChar(255)
-  subject   String?  @db.VarChar(255)
-  message   String   @db.Text
-  createdAt DateTime @default(now()) @map("created_at")   
-  updatedAt DateTime @updatedAt
-  
-  status    String   @default("NEW")
+    email     String     @unique // البريد الإلكتروني
+  phone     String?      // رقم الهاتف
+  password  String // كلمة المرور (مشفرة)
+  role      AdminRole // نوع المستخدم
+  status    AdminStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  loginHistory LoginHistory[]
+  notifications Notification[]
+  // البيانات المشتركة
+  name      String // الاسم
+  image     String? // الصورة الشخصية
+}
 
-  @@map("contacts")
+model NotificationAction {
+  id             String       @id @default(cuid())
+  notification   Notification @relation(fields: [notificationId], references: [id],onDelete:Cascade)
+  notificationId String       @unique
+  actionType     ActionType // نوع الإجراء
+  actionUrl      String? // رابط الإجراء
+  buttonText     String? // نص زر الإجراء
+  completed      Boolean      @default(false) // حالة اكتمال الإجراء
+  completedAt    DateTime? // وقت اكتمال الإجراء
+}
+
+enum ActionType {
+  VIEW // عرض
+  ACCEPT // قبول
+  REJECT // رفض
+  REPLY // رد
+  CONFIRM // تأكيد
+  REVIEW // مراجعة
+  PAY // دفع
+  OTHER // أخرى
+}
+
+model Notification {
+  id         String              @id @default(cuid())
+  user       User?               @relation(fields: [userId], references: [id]) // المستخدم المستلم
+  userId     String?
+  admin      Admin?              @relation(fields: [adminId], references: [id]) // المدير المستلم
+  adminId    String?
+  type       NotificationType // نوع الإشعار
+  title      String // عنوان الإشعار
+  content    String // محتوى الإشعار
+  data       Json? // بيانات إضافية للإشعار
+  isRead     Boolean             @default(false) // حالة القراءة
+  isArchived Boolean             @default(false) // حالة الأرشفة
+  createdAt  DateTime            @default(now()) // وقت الإنشاء
+  readAt     DateTime? // وقت القراءة
+  priority   Priority            @default(NORMAL) // أولوية الإشعار
+  action     NotificationAction? // الإجراء المطلوب
+  sender     User?               @relation("NotificationSender", fields: [senderId], references: [id])
+  senderId   String? // المرسل (إن وجد)
+  expiresAt  DateTime? // وقت انتهاء صلاحية الإشعار
+
+
+
+}
+enum Priority {
+  LOW // منخفضة
+  NORMAL // عادية
+  HIGH // عالية
+  URGENT // عاجلة
+}
+
+enum NotificationType {
+  MESSAGE // رسالة جديدة
+  TRANSFER_OFFER // عرض انتقال
+  MATCH_UPDATE // تحديث مباراة
+  TRAINING_SCHEDULE // جدول تدريب
+  CONTRACT_UPDATE // تحديث عقد
+  INJURY_UPDATE // تحديث إصابة
+  TEAM_NEWS // أخبار الفريق
+  ACHIEVEMENT // إنجاز جديد
+  SYSTEM // إشعار نظام
+  REMINDER // تذكير
+  PAYMENT // دفع
+  DOCUMENT // مستند
+  OTHER // أخرى
+  REACTION // تفاعل
+  COMMENT // تعليق
+  REPOST // نشر منشور
+  POST // منشور جديد
+  FRIENDSHIP_ACCEPTED
+  FRIENDSHIP_REQUESTED // طلب صداقة جديدة
+  VIEW_PROFILE // عرض البروفايل
+}
+
+model LoginHistory {
+    id        String       @id @default(cuid())
+    adminId    String
+    admin      Admin         @relation(fields: [adminId], references: [id])
+    success   Boolean      @default(true)
+    ip        String?
+    device    String?
+    location  String?
+    browser   String?
+    os        String?
+    createdAt DateTime     @default(now())
+}
+enum AdminStatus {
+  ACTIVE
+  INACTIVE
+  TERMINATED
+}
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
+  MONITOR
+  MARKETING
+}
+
+model ContactUs {
+    id                String   @id @default(cuid())
+    name              String
+    email             String
+    message           String
+    createdAt         DateTime @default(now())
+    updatedAt         DateTime @updatedAt
 }

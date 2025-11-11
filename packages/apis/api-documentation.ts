@@ -63,9 +63,9 @@ export class ApiClient {
         }),
     }
   static user = {
-    getUser: () => ({
+    findUserById: (id: string) => ({
         method: 'GET',
-        path:  '/user/me',
+        path:  '/users/me',
         description: 'الحصول على المستخدم الحالي'
     }),
   }

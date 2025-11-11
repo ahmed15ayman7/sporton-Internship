@@ -187,7 +187,12 @@ export const authApi = {
   getAccessTokenFromCookieServer: serverActions.getAccessTokenFromCookieServer,
   getRefreshTokenFromCookieServer: serverActions.getRefreshTokenFromCookieServer,
 }
-
 //!! Auth Api's End
+
+//?? User Api's Start
+export const userApi = {
+  findUserById: serverActions.findUserById,
+}
+//!! User Api's End
 export default api;
 export { ApiClient };
