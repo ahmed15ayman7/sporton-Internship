@@ -1,48 +1,50 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
-import { LoginDTO, RegisterDTO, UserResponseDTO } from './dto/auth.dto';
+import { AdminResponseDTO, LoginDTO, RegisterDTO } from './dto/auth.admin.dto';
 import * as argon from 'argon2';
-import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { UserStatus } from '@shared/prisma';
+import { AdminStatus } from '@shared/prisma';
+import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
+import { AdminService } from '../admin/admin.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private userService: UserService,
+    private adminService: AdminService,
     private jwtService: JwtService,
   ) {}
-  async register(registerDto: RegisterDTO): Promise<UserResponseDTO> {
+  async register(registerDto: CreateAdminDto) {
     // hash password
     const hashedPassword = await this.hashPassword(registerDto.password);
 
-    const createdUser = await this.userService.create({
+    const createdAdmin = await this.adminService.create({
       ...registerDto,
       password: hashedPassword,
     });
 
     // Create jwt tokens
-    const { accessToken, refreshToken } = this.generateTokens(createdUser.id);
+    const { accessToken, refreshToken } = this.generateTokens(createdAdmin.id);
 
     return {
-      userData:
-        this.userService.mapUserWithoutPasswordAndCastBigint(createdUser),
+      userData: this.adminService.mapUserWithoutPassword(createdAdmin),
       accessToken,
       refreshToken,
     };
   }
 
-  async login(loginDto: LoginDTO): Promise<UserResponseDTO> {
+  async login(loginDto: LoginDTO): Promise<AdminResponseDTO> {
     // find user by email
-    const foundUser = await this.userService.findByEmailOrThrow(loginDto.email);
+    const foundAdmin = await this.adminService.findByEmailOrThrow(
+      loginDto.email,
+    );
 
-    if (foundUser.status === UserStatus.BANNED) {
-      throw new UnauthorizedException('User is banned');
+    if (foundAdmin.status === AdminStatus.TERMINATED) {
+      throw new UnauthorizedException('Admin is TERMINATED');
     }
     // verify password with argon
     const isPasswordValid = await this.verifyPassword(
       loginDto.password,
-      foundUser.password,
+      foundAdmin.password,
     );
     // throw error if not match
     if (!isPasswordValid) {
@@ -50,49 +52,49 @@ export class AuthService {
     }
 
     // generate jwt tokens
-    const { accessToken, refreshToken } = this.generateTokens(foundUser.id);
+    const { accessToken, refreshToken } = this.generateTokens(foundAdmin.id);
     // return user data and tokens
     return {
-      userData: this.userService.mapUserWithoutPasswordAndCastBigint(foundUser),
+      adminData: this.adminService.mapUserWithoutPassword(foundAdmin),
       accessToken,
       refreshToken,
     };
   }
 
-  validate(userPayload: UserResponseDTO['userData']) {
+  validate(userPayload: AdminResponseDTO['adminData']) {
     // generate jwt tokens
     const { accessToken, refreshToken } = this.generateTokens(userPayload.id);
     // return user data and tokens
     return {
-      userData: userPayload,
+      adminData: userPayload,
       accessToken,
       refreshToken,
     };
   }
 
   // Refresh tokens using refresh token
-  async refreshTokens(refreshToken: string): Promise<UserResponseDTO> {
+  async refreshTokens(refreshToken: string): Promise<AdminResponseDTO> {
     try {
       // Verify refresh token
       const payload = this.jwtService.verify(refreshToken);
-
+      
       // Check if it's a refresh token
       if (payload.type !== 'refresh') {
         throw new UnauthorizedException('Invalid token type');
       }
 
-      // Get user from database
-      const userData = await this.userService.findOne(payload.sub);
-
-      if (!userData) {
-        throw new UnauthorizedException('User not found');
+      // Get admin from database (without password)
+      const adminData = await this.adminService.findOne(payload.sub);
+      
+      if (!adminData) {
+        throw new UnauthorizedException('Admin not found');
       }
-
+      
       // Generate new tokens
-      const tokens = this.generateTokens(userData.id);
-
+      const tokens = this.generateTokens(adminData.id);
+      
       return {
-        userData,
+        adminData,
         ...tokens,
       };
     } catch {
@@ -106,21 +108,23 @@ export class AuthService {
   private verifyPassword(password: string, hashedPassword: string) {
     return argon.verify(hashedPassword, password);
   }
-
+  
+  // Generate Access Token (صلاحية قصيرة: 15 دقيقة)
   private generateAccessToken(userId: string) {
     return this.jwtService.sign(
-      { sub: userId, type: 'access' },
-      { expiresIn: '15m' },
+      { sub: userId, type: 'access' }, 
+      { expiresIn: '15m' }
     );
   }
-
+  
+  // Generate Refresh Token (صلاحية طويلة: 7 أيام)
   private generateRefreshToken(userId: string) {
     return this.jwtService.sign(
-      { sub: userId, type: 'refresh' },
-      { expiresIn: '7d' },
+      { sub: userId, type: 'refresh' }, 
+      { expiresIn: '7d' }
     );
   }
-
+  
   // Generate both tokens
   private generateTokens(userId: string) {
     return {

@@ -13,7 +13,7 @@ import { Reflector } from '@nestjs/core';
 import { IsPublic } from 'src/decorators/public.decorator';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminAuthGuard implements CanActivate {
   constructor(
     private jwtService: JwtService,
     private prismaService: DatabaseService,
@@ -45,14 +45,14 @@ export class AuthGuard implements CanActivate {
       const payload = this.jwtService.verify<Token_Payload>(jwt);
 
       // get user from db
-      const user = await this.prismaService.user.findUniqueOrThrow({
+      const admin = await this.prismaService.admin.findUniqueOrThrow({
         where: { id: payload.sub },
       });
 
       // attach user to request
-      request.user = {
-        ...removeFields(user, ['password']),
-        id: String(user.id),
+      req.admin = {
+        ...removeFields(admin, ['password']),
+        id: String(admin.id),
       };
     } catch {
       throw new UnauthorizedException();

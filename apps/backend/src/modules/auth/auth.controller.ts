@@ -65,4 +65,13 @@ export class AuthController {
   validate(@Req() request: Request): UserResponseDTO {
     return this.authService.validate(request.user!);
   }
+
+  @Post('refresh')
+  @IsPublic(true)
+  @ApiOperation({ summary: 'Refresh access token using refresh token' })
+  @ApiResponse({ status: 200, description: 'Tokens refreshed successfully' })
+  @ApiResponse({ status: 401, description: 'Invalid refresh token' })
+  async refresh(@Body('refreshToken') refreshToken: string): Promise<UserResponseDTO> {
+    return this.authService.refreshTokens(refreshToken);
+  }
 }

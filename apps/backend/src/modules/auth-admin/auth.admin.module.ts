@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
-import { UserModule } from '../user/user.module';
+import { AuthService } from './auth.admin.service';
+import { AuthController } from './auth.admin.controller';
+import { AdminModule } from '../admin/admin.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { EnvVariables } from 'src/types/declartion-mergin';
@@ -10,7 +10,7 @@ import { EnvVariables } from 'src/types/declartion-mergin';
   controllers: [AuthController],
   providers: [AuthService],
   imports: [
-    UserModule,
+    AdminModule,
     JwtModule.registerAsync({
       global: true,
       useFactory: (configService: ConfigService<EnvVariables>) => ({
@@ -20,4 +20,4 @@ import { EnvVariables } from 'src/types/declartion-mergin';
     }),
   ],
 })
-export class AuthModule {}
+export class AuthAdminModule {}
