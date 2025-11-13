@@ -4,7 +4,7 @@ import * as serverActions from './serverActions';
 import { ApiClient } from './api-documentation';
 
 //?? API Configuration
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'; // added /api
 
 interface TokenPayload {
   exp: number;
