@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  basePath: '/landing',
+  assetPrefix: '/landing',
   trailingSlash: true,
   output: 'standalone',
   transpilePackages: ['@sporton/ui', '@sporton/apis', '@sporton/interfaces', '@sporton/auth'],
