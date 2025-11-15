@@ -22,9 +22,9 @@
     "api:d": "cd apps/backend && npm run dev && cd ../..",
     "api:b": "cd apps/backend && npm run build && cd ../..",
     "api:s": "cd apps/backend && npm run start && cd ../..",
-    "app:d": "au:d&&la:d&&api:d",
-    "app:b": "au:b&&la:b&&api:b",
-    "app:s": "au:s&&la:s&&api:s"
+    "app:d": "pnpm au:d && pnpm la:d && pnpm api:d",
+    "app:b": "pnpm au:b && pnpm la:b && pnpm api:b",
+    "app:s": "pnpm au:s && pnpm la:s && pnpm api:s"
   },
   "keywords": [],
   "author": "",

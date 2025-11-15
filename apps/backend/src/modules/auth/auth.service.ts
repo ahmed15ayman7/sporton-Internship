@@ -4,7 +4,7 @@ import { LoginDTO, RegisterDTO, UserResponseDTO } from './dto/auth.dto';
 import * as argon from 'argon2';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { UserStatus } from '@shared/prisma';
+import { Role, UserStatus } from '@shared/prisma';
 
 @Injectable()
 export class AuthService {
@@ -19,6 +19,7 @@ export class AuthService {
     const createdUser = await this.userService.create({
       ...registerDto,
       password: hashedPassword,
+      role: Role.PLAYER,
     });
 
     // Create jwt token

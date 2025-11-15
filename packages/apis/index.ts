@@ -194,5 +194,11 @@ export const userApi = {
   findUserById: serverActions.findUserById,
 }
 //!! User Api's End
+
+//?? Contact Api's Start
+export const contactUs = {
+  createContact: serverActions.createContact,
+}
+//!! Contact Api's End
 export default api;
 export { ApiClient };

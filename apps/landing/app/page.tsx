@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@sporton/ui/components/button';
 import { Input } from '@sporton/ui/components/input';
+import { contactUs } from '@sporton/apis';
 
 export default function LandingPage() {
   const [contactData, setContactData] = useState({
@@ -10,10 +11,11 @@ export default function LandingPage() {
     message: '',
   });
 
-  const submitContactForm = () => {
+  const submitContactForm = async () => {
     // Handle form submission logic here
     console.log(contactData);
     setContactData({ name: '', email: '', message: '' });
+    let contact = await contactUs.createContact(contactData);
   }
 
   return (
