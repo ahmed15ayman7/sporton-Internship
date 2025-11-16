@@ -21,12 +21,18 @@ export class AuthService {
       password: hashedPassword,
     });
 
+    // if (createdUser.role) {
+    //   await this.userService.update(createdUser.id, { isChoseRole: true });
+    // }
+    if (createdUser.role) {
+      createdUser.isChoseRole = true;
+    }
+
     // Create jwt tokens
     const { accessToken, refreshToken } = this.generateTokens(createdUser.id);
 
     return {
-      userData:
-        this.userService.mapUserWithoutPasswordAndCastBigint(createdUser),
+      userData: this.userService.mapUserWithoutPassword(createdUser),
       accessToken,
       refreshToken,
     };
@@ -49,11 +55,19 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
+    // Update lastLogin
+    await this.userService.updateLastLogin(foundUser.id);
+    await this.userService.update(foundUser.id, { isOnline: true });
+    // Get the updated user
+    const updatedUser = await this.userService.findByEmailOrThrow(
+      loginDto.email,
+    );
     // generate jwt tokens
     const { accessToken, refreshToken } = this.generateTokens(foundUser.id);
+
     // return user data and tokens
     return {
-      userData: this.userService.mapUserWithoutPasswordAndCastBigint(foundUser),
+      userData: this.userService.mapUserWithoutPassword(updatedUser),
       accessToken,
       refreshToken,
     };

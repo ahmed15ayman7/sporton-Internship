@@ -8,7 +8,6 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core/constants';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { AdminModule } from './modules/admin/admin.module';
-import { AdminAuthGuard } from './modules/auth-admin/guards/auth.admin.guard';
 
 @Module({
   imports: [
@@ -23,7 +22,6 @@ import { AdminAuthGuard } from './modules/auth-admin/guards/auth.admin.guard';
     }),
   ],
   providers: [
-    // Global guard for users only
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
