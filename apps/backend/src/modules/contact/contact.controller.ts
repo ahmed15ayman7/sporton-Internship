@@ -6,28 +6,17 @@ import {
   Body,
   Param,
   Query,
-  UseGuards,
 } from '@nestjs/common';
 import { ContactService } from './contact.service';
 
 import { PaginationQueryType } from 'src/types/util.types';
 import { IsPublic } from 'src/decorators/public.decorator';
-import {
-  ApiTags,
-  ApiOperation,
-  ApiResponse,
-  ApiBearerAuth,
-  ApiBody,
-  ApiParam,
-  ApiQuery,
-} from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { CreateContactUsDto } from '../../dtos/ContactUs.create.dto';
 import { UpdateContactUsDto } from '../../dtos/ContactUs.update.dto';
-import { AdminAuthGuard } from '../auth-admin/guards/auth.admin.guard';
 
 @ApiTags('Contact')
 @Controller('contact')
-@UseGuards(AdminAuthGuard)
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
 
@@ -42,10 +31,7 @@ export class ContactController {
         name: { type: 'string', example: 'John Doe' },
         email: { type: 'string', example: 'john@example.com' },
         subject: { type: 'string', example: 'Service Inquiry' },
-        message: {
-          type: 'string',
-          example: 'I would like to inquire about...',
-        },
+        message: { type: 'string', example: 'I would like to inquire about...' },
       },
       required: ['name', 'email', 'message'],
     },
@@ -60,6 +46,11 @@ export class ContactController {
   }
 
   @Get()
+  @ApiBearerAuth('JWT-auth')
+  @ApiOperation({ summary: 'Get all contact messages' })
+  @ApiQuery({ name: 'page', required: false, type: Number, example: 1 })
+  @ApiQuery({ name: 'limit', required: false, type: Number, example: 10 })
+  @ApiResponse({ status: 200, description: 'Messages retrieved successfully' })
   findAll(@Query() query: PaginationQueryType) {
     return this.contactService.findAll(query);
   }
@@ -90,10 +81,7 @@ export class ContactController {
   })
   @ApiResponse({ status: 200, description: 'Message updated successfully' })
   @ApiResponse({ status: 404, description: 'Message not found' })
-  update(
-    @Param('id') id: string,
-    @Body() contactUpdateDto: UpdateContactUsDto,
-  ) {
+  update(@Param('id') id: string, @Body() contactUpdateDto: UpdateContactUsDto) {
     return this.contactService.update(id, contactUpdateDto);
   }
 }

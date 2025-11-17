@@ -32,13 +32,6 @@ export class AdminAuthGuard implements CanActivate {
     // get request
     const req = context.switchToHttp().getRequest<Request>();
 
-    // Skip this guard for admin routes (they use AdminAuthGuard)
-    if (
-      req.path?.startsWith('/api/user') ||
-      req.path?.startsWith('/api/auth')
-    ) {
-      return true;
-    }
     // authoraizatin header
     const authHeader = req.headers.authorization;
     // auth header = "Bearer <token>"

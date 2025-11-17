@@ -1,13 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
-import {
-  AdminResponseDTO,
-  LoginDTO,
-  RegisterAdminDTO,
-} from './dto/auth.admin.dto';
+import { AdminResponseDTO, LoginDTO, RegisterDTO } from './dto/auth.admin.dto';
 import * as argon from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { AdminStatus } from '@shared/prisma';
+import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
 import { AdminService } from '../admin/admin.service';
 
 @Injectable()
@@ -16,7 +13,7 @@ export class AuthService {
     private adminService: AdminService,
     private jwtService: JwtService,
   ) {}
-  async register(registerDto: RegisterAdminDTO) {
+  async register(registerDto: CreateAdminDto) {
     // hash password
     const hashedPassword = await this.hashPassword(registerDto.password);
 
@@ -80,7 +77,7 @@ export class AuthService {
     try {
       // Verify refresh token
       const payload = this.jwtService.verify(refreshToken);
-
+      
       // Check if it's a refresh token
       if (payload.type !== 'refresh') {
         throw new UnauthorizedException('Invalid token type');
@@ -88,14 +85,14 @@ export class AuthService {
 
       // Get admin from database (without password)
       const adminData = await this.adminService.findOne(payload.sub);
-
+      
       if (!adminData) {
         throw new UnauthorizedException('Admin not found');
       }
-
+      
       // Generate new tokens
       const tokens = this.generateTokens(adminData.id);
-
+      
       return {
         adminData,
         ...tokens,
@@ -111,23 +108,23 @@ export class AuthService {
   private verifyPassword(password: string, hashedPassword: string) {
     return argon.verify(hashedPassword, password);
   }
-
+  
   // Generate Access Token (صلاحية قصيرة: 15 دقيقة)
   private generateAccessToken(userId: string) {
     return this.jwtService.sign(
-      { sub: userId, type: 'access' },
-      { expiresIn: '15m' },
+      { sub: userId, type: 'access' }, 
+      { expiresIn: '15m' }
     );
   }
-
+  
   // Generate Refresh Token (صلاحية طويلة: 7 أيام)
   private generateRefreshToken(userId: string) {
     return this.jwtService.sign(
-      { sub: userId, type: 'refresh' },
-      { expiresIn: '7d' },
+      { sub: userId, type: 'refresh' }, 
+      { expiresIn: '7d' }
     );
   }
-
+  
   // Generate both tokens
   private generateTokens(userId: string) {
     return {

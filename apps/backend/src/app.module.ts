@@ -23,9 +23,10 @@ import { AdminAuthGuard } from './modules/auth-admin/guards/auth.admin.guard';
     }),
   ],
   providers: [
+    // Global guard for users only
     {
       provide: APP_GUARD,
-      useClass: AdminAuthGuard,
+      useClass: AuthGuard,
     },
   ],
 })

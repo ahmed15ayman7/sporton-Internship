@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import api, { API_URL , ApiClient } from "./index";
 import axios from "axios";
-import { User } from "@sporton/interfaces";
+import { ContactUs, User } from "@sporton/interfaces";
 export interface PaginatedResponse<T> {
     data: T[];
     meta: {
@@ -90,5 +90,10 @@ export async function logout() {
 export async function findUserById(id: string) {
   let {path} = ApiClient.user.findUserById(id);
   const response = await api.get(path);
+  return response.data;
+}
+export async function createContact(data: Partial<ContactUs>) {
+  let {path} = ApiClient.contact.createContact(data);
+  const response = await api.post(path,data);
   return response.data;
 }

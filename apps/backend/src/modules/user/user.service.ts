@@ -8,27 +8,14 @@ import {
   PaginationResponseType,
 } from 'src/types/util.types';
 import { updateUserDTO } from './dto/user.dto';
-import { UpdateUserDto } from 'src/dtos/User.update.dto';
-import { UserDto } from 'src/dtos/User.dto';
 
 @Injectable()
 export class UserService {
   constructor(private prismaService: DatabaseService) {}
 
   create(registerDTO: RegisterDTO) {
-    // Check if profile is completed at registration
-    const isProfileCompleted = this.checkProfileCompletion(registerDTO as User);
-    let isChoseRole = false;
-    if (registerDTO.role) {
-      isChoseRole = true;
-    }
-
     return this.prismaService.user.create({
-      data: {
-        ...registerDTO,
-        isProfileCompleted,
-        isChoseRole,
-      },
+      data: registerDTO,
     });
   }
 
@@ -68,35 +55,16 @@ export class UserService {
     });
   }
 
-  async update(id: string, userUpdatePayload: Partial<UpdateUserDto>) {
-    // Get current user data
-    const currentUser = await this.prismaService.user.findUnique({
-      where: { id },
-    });
-
-    if (!currentUser) {
-      throw new Error('User not found');
+  update(id: string, userUpdatePayload: updateUserDTO) {
+    {
+      return this.prismaService.user.update({
+        where: { id },
+        data: userUpdatePayload,
+        omit: {
+          password: true,
+        },
+      });
     }
-
-    // Check if profile is completed after update
-    const updatedData = { ...currentUser, ...userUpdatePayload };
-    const isProfileCompleted = this.checkProfileCompletion(updatedData);
-
-    await this.prismaService.user.update({
-      where: { id },
-      data: {
-        ...userUpdatePayload,
-        isProfileCompleted,
-      },
-      omit: {
-        password: true,
-      },
-    });
-    const updatedUser = await this.prismaService.user.findUnique({
-      where: { id },
-      omit: { password: true },
-    });
-    return updatedUser;
   }
 
   delete(id: string) {
@@ -106,41 +74,12 @@ export class UserService {
     });
   }
 
-  updateLastLogin(id: string) {
-    return this.prismaService.user.update({
-      where: { id },
-      data: { lastLogin: new Date() },
-    });
-  }
-  userWithlastLogin(id: string) {
-    return this.prismaService.user.findUnique({
-      where: { id },
-    });
-  }
-  // Check if all optional profile fields are filled
-  private checkProfileCompletion(user: User): boolean {
-    // Check if all optional fields are filled (not null or undefined)
-    const optionalFields = [
-      user.phone,
-      user.image,
-      user.cover,
-      user.country,
-      user.city,
-      user.language,
-      user.sport,
-    ];
-
-    return optionalFields.every(
-      (field) => field !== null && field !== undefined,
-    );
-  }
-
-  mapUserWithoutPassword(user: User): UserResponseDTO['userData'] {
+  mapUserWithoutPasswordAndCastBigint(user: User): UserResponseDTO['userData'] {
     const userWithoutPassword = removeFields(user, ['password']);
 
     return {
       ...userWithoutPassword,
       id: userWithoutPassword.id,
-    } as UserResponseDTO['userData'];
+    };
   }
 }

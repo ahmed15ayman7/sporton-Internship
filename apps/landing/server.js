@@ -11,6 +11,6 @@ const port = process.env.PORT || 4001;
 
 app.prepare().then(() => {
   createServer((req, res) => handle(req, res)).listen(port, () => {
-    console.log(`> Ready on http://localhost:${port}/auth`);
+    console.log(`> Ready on http://localhost:${port}/landing`);
   });
 });

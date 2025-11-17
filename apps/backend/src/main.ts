@@ -26,6 +26,16 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
+
+  // تمكين CORS للسماح بالطلبات من الواجهة الأمامية
+  app.enableCors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:4002',
+    credentials: true, // if you use cookies or auth headers
+  });
+
+
+
+
   await app.listen(process.env.PORT ?? 3000);
   console.log(
     `Application is running on: http://localhost:${process.env.PORT ?? 3000}`,

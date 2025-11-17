@@ -1,11 +1,7 @@
 import { Controller, Get, Post, Body, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
 import { AuthService } from './auth.admin.service';
-import type {
-  AdminResponseDTO,
-  LoginDTO,
-  RegisterAdminDTO,
-} from './dto/auth.admin.dto';
+import type { AdminResponseDTO, LoginDTO } from './dto/auth.admin.dto';
 import { IsPublic } from 'src/decorators/public.decorator';
 import {
   registerValidationSchema,
@@ -16,6 +12,7 @@ import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
 import { AdminAuthGuard } from './guards/auth.admin.guard';
 
 @Controller('authadmin')
+@UseGuards(AdminAuthGuard)
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
@@ -23,7 +20,7 @@ export class AuthController {
   @IsPublic(true)
   register(
     @Body(new ZodValidationPipe(registerValidationSchema))
-    registerDto: RegisterAdminDTO,
+    registerDto: CreateAdminDto,
   ) {
     return this.authService.register(registerDto);
   }
@@ -44,9 +41,7 @@ export class AuthController {
 
   @Post('refresh')
   @IsPublic(true)
-  async refresh(
-    @Body('refreshToken') refreshToken: string,
-  ): Promise<AdminResponseDTO> {
+  async refresh(@Body('refreshToken') refreshToken: string): Promise<AdminResponseDTO> {
     return this.authService.refreshTokens(refreshToken);
   }
 }

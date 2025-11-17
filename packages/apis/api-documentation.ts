@@ -70,9 +70,9 @@ export class ApiClient {
     }),
   }
   static contact = {
-    createContact: (data: ContactUs) => ({
+    createContact: (data: Partial<ContactUs>) => ({
       method: 'POST',
-      path:  '/contact/create',
+      path:  '/contact',
       description: 'إنشاء الاتصال'
     }),
   }

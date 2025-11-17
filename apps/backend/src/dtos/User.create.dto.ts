@@ -40,6 +40,11 @@ export class CreateUserDto {
   @Column()
   updatedAt: Date;
 
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: lastLogin, Type: Date
+  @Column()
+  lastLogin?: Date;
+
   @ApiProperty({ type: "string" })
   // Field: name, Type: string
   @Column()

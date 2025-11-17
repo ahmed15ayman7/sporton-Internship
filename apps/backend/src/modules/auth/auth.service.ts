@@ -4,7 +4,7 @@ import { LoginDTO, RegisterDTO, UserResponseDTO } from './dto/auth.dto';
 import * as argon from 'argon2';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { UserStatus } from '@shared/prisma';
+import { Role, UserStatus } from '@shared/prisma';
 
 @Injectable()
 export class AuthService {
@@ -19,17 +19,15 @@ export class AuthService {
     const createdUser = await this.userService.create({
       ...registerDto,
       password: hashedPassword,
+      role: Role.PLAYER,
     });
-
-    if (createdUser.role) {
-      createdUser.isChoseRole = true;
-    }
 
     // Create jwt tokens
     const { accessToken, refreshToken } = this.generateTokens(createdUser.id);
 
     return {
-      userData: this.userService.mapUserWithoutPassword(createdUser),
+      userData:
+        this.userService.mapUserWithoutPasswordAndCastBigint(createdUser),
       accessToken,
       refreshToken,
     };
@@ -52,19 +50,11 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    // Update lastLogin
-    await this.userService.updateLastLogin(foundUser.id);
-    await this.userService.update(foundUser.id, { isOnline: true });
-    // Get the updated user
-    const updatedUser = await this.userService.findByEmailOrThrow(
-      loginDto.email,
-    );
     // generate jwt tokens
     const { accessToken, refreshToken } = this.generateTokens(foundUser.id);
-
     // return user data and tokens
     return {
-      userData: this.userService.mapUserWithoutPassword(updatedUser),
+      userData: this.userService.mapUserWithoutPasswordAndCastBigint(foundUser),
       accessToken,
       refreshToken,
     };

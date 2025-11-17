@@ -8,14 +8,25 @@ export const validationSchema = z.object({
   email: z.email().toLowerCase(), // validate and transform to lowercase
   password: z.string().min(6).max(100),
   role: z.nativeEnum(Role),
-  phone: z.string().min(10).max(10).optional(),
-  image: z.string().min(1).max(255).optional(),
-  cover: z.string().min(1).max(255).optional(),
-  country: z.string().min(1).max(255).optional(),
-  city: z.string().min(1).max(255).optional(),
-  language: z.string().min(1).max(255).optional(),
+  phone: z.string().min(10).max(10),
+  status: z.nativeEnum(UserStatus),
+  updatedAt: z.date(),
+  lastLogin: z.date(),
+  createdAt: z.date(),
+  isOnline: z.boolean(),
+  isChoseRole: z.boolean(),
+  isProfileCompleted: z.boolean(),
+  image: z.string().min(1).max(255),
+  cover: z.string().min(1).max(255),
+  country: z.string().min(1).max(255),
+  city: z.string().min(1).max(255),
+  language: z.string().min(1).max(255),
   sport: z.nativeEnum(Sport),
 }) satisfies ZodType<RegisterDTO>;
 
-export const updateUserSchema =
-  validationSchema.partial() satisfies ZodType<updateUserDTO>;
+export const updateUserSchema = validationSchema
+  .pick({
+    name: true,
+    email: true,
+  })
+  .partial() satisfies ZodType<updateUserDTO>;
