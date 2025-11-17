@@ -1,11 +1,11 @@
-import { User, Admin} from '@shared/prisma';
+import { User } from '@shared/prisma';
 
 export type RegisterDTO = Omit<User, 'id' | 'createdAt' | 'isDeleted'>;
 
 export type UserResponseDTO = {
-  token: string;
+  accessToken: string;
+  refreshToken: string;
   userData: Omit<User, 'password'>;
-  adminData?: Omit<Admin, 'password'>;
 };
 
 export type LoginDTO = Pick<User, 'email' | 'password'>;

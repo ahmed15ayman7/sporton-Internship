@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { PaginationQueryType } from 'src/types/util.types';
@@ -15,9 +16,11 @@ import { ZodValidationPipe } from 'src/pipes/zod.validation.pipe';
 import { paginationSchema } from '../utils/api.util';
 import { updateUserSchema } from './utils/user.validation.schema';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiBody, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 @ApiTags('Users')
 @ApiBearerAuth('JWT-auth')
+@UseGuards(AuthGuard)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
