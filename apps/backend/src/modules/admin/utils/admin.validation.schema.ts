@@ -4,6 +4,7 @@ import { AdminRole, AdminStatus } from '@shared/prisma';
 import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
 import { UpdateAdminDto } from 'src/dtos/Admin.update.dto';
 import { updateUserDTO } from 'src/modules/user/dto/user.dto';
+import { RegisterAdminDTO } from 'src/modules/auth-admin/dto/auth.admin.dto';
 
 // Admin validation schema for registration
 export const adminValidationSchema = z.object({
@@ -12,9 +13,8 @@ export const adminValidationSchema = z.object({
   password: z.string().min(6).max(100),
   role: z.nativeEnum(AdminRole),
   phone: z.string().min(10).max(20).optional(),
-  status: z.nativeEnum(AdminStatus),
   image: z.string().min(1).max(255).optional(),
-});
+}) satisfies ZodType<RegisterAdminDTO>;
 
 export const updateUserSchema = adminValidationSchema
   .pick({

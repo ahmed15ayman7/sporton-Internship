@@ -15,11 +15,13 @@ import { ZodValidationPipe } from 'src/pipes/zod.validation.pipe';
 import { paginationSchema } from '../utils/api.util';
 import { updateUserSchema } from './utils/user.validation.schema';
 import { UpdateUserDto } from 'src/dtos/User.update.dto';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 @Controller('user')
+@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly userService: UserService) {}
-
+  
   @Get()
   findAll(
     @Query(new ZodValidationPipe(paginationSchema)) query: PaginationQueryType,

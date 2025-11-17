@@ -1,19 +1,10 @@
-import { Controller, Get, Post, Body, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
 import { AuthService } from './auth.service';
-import {
-  ApiTags,
-  ApiOperation,
-  ApiResponse,
-  ApiBearerAuth,
-  ApiBody,
-} from '@nestjs/swagger';
-
 import type { LoginDTO, RegisterDTO, UserResponseDTO } from './dto/auth.dto';
 import { IsPublic } from 'src/decorators/public.decorator';
 import { registerValidationSchema } from './utils/auth.validation.schema';
 import { ZodValidationPipe } from 'src/pipes/zod.validation.pipe';
-import { CreateUserDto } from 'src/dtos/User.create.dto';
 
 @Controller('auth')
 export class AuthController {

@@ -9,12 +9,13 @@ import {
 } from 'src/types/util.types';
 import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
 import { UpdateAdminDto } from 'src/dtos/Admin.update.dto';
+import { RegisterAdminDTO } from '../auth-admin/dto/auth.admin.dto';
 
 @Injectable()
 export class AdminService {
   constructor(private prismaService: DatabaseService) {}
 
-  create(registerDTO: CreateAdminDto) {
+  create(registerDTO: RegisterAdminDTO) {
     return this.prismaService.admin.create({
       data: registerDTO,
     });

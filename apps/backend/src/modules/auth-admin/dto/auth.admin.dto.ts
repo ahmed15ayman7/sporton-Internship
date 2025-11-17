@@ -1,6 +1,10 @@
 import { Admin } from '@shared/prisma';
+import { CreateAdminDto } from 'src/dtos/Admin.create.dto';
 
-export type RegisterDTO = Omit<Admin, 'id' | 'createdAt' | 'isDeleted'>;
+export type RegisterAdminDTO = Omit<
+  CreateAdminDto,
+  'id' | 'createdAt' | 'isDeleted' | 'status'
+>;
 
 export type AdminResponseDTO = {
   accessToken: string;

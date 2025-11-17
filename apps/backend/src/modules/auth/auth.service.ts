@@ -21,9 +21,6 @@ export class AuthService {
       password: hashedPassword,
     });
 
-    // if (createdUser.role) {
-    //   await this.userService.update(createdUser.id, { isChoseRole: true });
-    // }
     if (createdUser.role) {
       createdUser.isChoseRole = true;
     }

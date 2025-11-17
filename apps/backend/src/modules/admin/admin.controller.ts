@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { PaginationQueryType } from 'src/types/util.types';
-import { updateAdminDTO } from './dto/user.dto';
 import { ZodValidationPipe } from 'src/pipes/zod.validation.pipe';
 import { paginationSchema } from '../utils/api.util';
 import { updateUserSchema } from './utils/admin.validation.schema';
