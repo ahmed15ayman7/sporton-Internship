@@ -3,6 +3,8 @@ import { NotificationEntity } from "./Notification.entity";
 import { PostEntity } from "./Post.entity";
 import { CommentEntity } from "./Comment.entity";
 import { ReactionEntity } from "./Reaction.entity";
+import { PaymentEntity } from "./Payment.entity";
+import { SubscriptionEntity } from "./Subscription.entity";
 import {
   Role,
   UserStatus,
@@ -11,6 +13,8 @@ import {
   Post,
   Comment,
   Reaction,
+  Payment,
+  Subscription,
 } from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";
@@ -146,4 +150,14 @@ export class UserDto {
   // Field: postsViews, Type: Post[]
   @Column()
   postsViews: Post[];
+
+  @ApiProperty({ type: PaymentEntity })
+  // Field: payments, Type: Payment[]
+  @Column()
+  payments: Payment[];
+
+  @ApiProperty({ type: SubscriptionEntity })
+  // Field: subscriptions, Type: Subscription[]
+  @Column()
+  subscriptions: Subscription[];
 }

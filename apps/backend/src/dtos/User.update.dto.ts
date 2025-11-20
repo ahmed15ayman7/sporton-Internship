@@ -7,6 +7,8 @@ import {
   Post,
   Comment,
   Reaction,
+  Payment,
+  Subscription,
 } from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";

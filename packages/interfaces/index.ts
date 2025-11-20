@@ -20,6 +20,14 @@ export type PostVisibility = 'PUBLIC' | 'FRIENDS' | 'PRIVATE';
 
 export type EmojiType = 'LOVE' | 'HAHA' | 'LIKE' | 'ANGRY' | 'CLAP';
 
+export type PlanType = 'FREE' | 'BASIC' | 'PREMIUM' | 'PROFESSIONAL';
+
+export type SubscriptionStatus = 'ACTIVE' | 'EXPIRED' | 'CANCELLED' | 'PENDING';
+
+export type PaymentType = 'SUBSCRIPTION' | 'EVENT' | 'TRAINING' | 'ADVERTISEMENT' | 'SPONSORSHIP';
+
+export type PaymentStatus = 'PENDING' | 'COMPLETED' | 'FAILED' | 'REFUNDED';
+
 export interface User {
   id: string;
   email: string;
@@ -48,6 +56,8 @@ export interface User {
   comments: Comment[] | undefined;
   reactions: Reaction[] | undefined;
   postsViews: Post[] | undefined;
+  payments: Payment[] | undefined;
+  subscriptions: Subscription[] | undefined;
 }
 
 export interface Admin {
@@ -181,4 +191,30 @@ export interface Comment {
   post?: Post | undefined;
   postId?: string;
   reactions: Reaction[] | undefined;
+}
+
+export interface Subscription {
+  id: string;
+  user: User | undefined;
+  userId: string;
+  plan: PlanType | undefined;
+  startDate: Date;
+  endDate: Date;
+  status: SubscriptionStatus | undefined;
+  features: string[];
+  billingPeriod?: string;
+  payments: Payment[] | undefined;
+}
+
+export interface Payment {
+  id: string;
+  user: User | undefined;
+  userId: string;
+  amount: number;
+  type: PaymentType | undefined;
+  status: PaymentStatus | undefined;
+  date: Date;
+  description?: string;
+  subscription?: Subscription | undefined;
+  subscriptionId?: string;
 }

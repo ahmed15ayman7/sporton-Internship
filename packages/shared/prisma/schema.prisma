@@ -48,6 +48,8 @@ model User {
   comments      Comment[] // التعليقات
   reactions     Reaction[] // الردود
   postsViews Post[] @relation("PostViews")
+  payments Payment[]
+  subscriptions Subscription[]
 }
 enum UserStatus {
   ACTIVE // نشط
@@ -293,4 +295,62 @@ model Comment {
   postId    String?
 
   reactions Reaction[]
+}
+model Subscription {
+  id             String             @id @default(cuid())
+  user           User               @relation(fields: [userId], references: [id])
+  userId         String
+  plan           PlanType
+  startDate      DateTime
+  endDate        DateTime
+  status         SubscriptionStatus
+  features       String[]
+  billingPeriod  String?            // 'monthly' or 'yearly'
+  payments       Payment[]
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  user        User          @relation(fields: [userId], references: [id])
+  userId      String
+  amount      Float
+  type        PaymentType
+  status      PaymentStatus
+  date        DateTime
+  description String?
+  subscription Subscription? @relation(fields: [subscriptionId], references: [id])
+  subscriptionId String?
+}
+
+// الأنواع المختلفة للاشتراكات في المنصة
+enum PlanType {
+  FREE // الخطة المجانية
+  BASIC // الخطة الأساسية
+  PREMIUM // الخطة المتميزة
+  PROFESSIONAL // الخطة الاحترافية
+}
+
+// حالات الاشتراك المختلفة
+enum SubscriptionStatus {
+  ACTIVE // اشتراك نشط
+  EXPIRED // اشتراك منتهي
+  CANCELLED // اشتراك ملغي
+  PENDING // في انتظار التفعيل
+}
+
+// أنواع المدفوعات المختلفة
+enum PaymentType {
+  SUBSCRIPTION // دفع اشتراك
+  EVENT // دفع لفعالية
+  TRAINING // دفع لتدريب
+  ADVERTISEMENT // دفع إعلان
+  SPONSORSHIP // دفع رعاية
+}
+
+// حالات الدفع المختلفة
+enum PaymentStatus {
+  PENDING // في انتظار الدفع
+  COMPLETED // تم الدفع
+  FAILED // فشل الدفع
+  REFUNDED // تم استرداد المبلغ
 }
