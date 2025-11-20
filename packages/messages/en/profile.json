@@ -1,0 +1,398 @@
+{
+  "profileHeader": {
+    "removeFromFriendsList": "Remove",
+    "addToFriendsList": "Connect",
+    "cancelRequest": "Cancel Request",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "unBlock": "Un Block",
+    "acceptRequest": "Accept Request"
+  },
+  "ePortfolioTab": {
+    "edit": "Edit",
+    "save": "Save",
+    "close": "Close",
+    "name": "Name",
+    "age": "Age",
+    "height": "Height",
+    "weight": "Weight",
+    "position": "Position",
+    "location": "Location",
+    "achievements": "Achievements",
+    "careerStatistics": "Career Statistics",
+    "matches": "Matches",
+    "goals": "Goals",
+    "assists": "Assists",
+    "skills": "Skills",
+    "skill": "Skill",
+    "recentAchievements": "Recent Achievements",
+    "experience": "Experience",
+    "present": "Present",
+    "awards": "Awards",
+    "kg": "KG",
+    "cm": "CM",
+    "forward": "Forward",
+    "cairo": "Cairo",
+    "egypt": "Egypt",
+    "player": "Player",
+    "playerProfile": "Player Profile",
+    "jerseyNumber": "Jersey Number",
+    "noAchievements": "No achievements to display, add a new achievement",
+    "noExperience": "No experiences to display, add a new experience",
+    "noSkills": "No skills to display, add a new skill",
+    "yes": "Yes",
+    "no": "No",
+    "currentlyPlaying": "Currently Playing"
+  },
+  "profileTabs": {
+    "ePortfolio": "E-Portfolio",
+    "professional": "Professional",
+    "connections": "Team",
+    "aiTools": "AI Tools",
+    "analytics": "Analytics",
+    "posts": "Posts"
+  },
+  "connectionsTab": {
+    "search": "Search friendship by name or company...",
+    "name": "Name",
+    "sport": "Sport",
+    "online": "Online Status",
+    "allConnections": "All Connections",
+    "loadingFriendships": "Loading friendships...",
+    "noFriendships": "No friendships found",
+    "message": "Message",
+    "viewProfile": "View Profile",
+    "addToFavorites": "Add to Favorites",
+    "removeConnection": "Remove Connection",
+    "blockUser": "Block User",
+    "reportUser": "Report User",
+    "ago": "ago",
+    "addConnection": "Add Connection",
+    "cancelRequest": "Cancel Request",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "unBlock": "Un Block"
+  },
+  "aiToolsTab": {
+    "uploadVideo": "Upload your video here",
+    "chooseFile": "Choose file",
+    "changeVideo": "Change Video",
+    "analyzing": "Analyzing...",
+    "analyzeVideo": "Analyze Video",
+    "analysisResults": "Analysis Results",
+    "supports": "Supports .mp4, .mov files",
+    "modalTitle":"ai tools",
+    "realTimePerformanceMetrics": "Real-time performance metrics from your latest session",
+    "downloadPDF": "Download PDF",
+    "speedTracker": {
+      "name": "Speed Tracker",
+      "description": "Analyze sprint speed, acceleration patterns, and top velocity metrics from your training footage."
+    },
+    "jumpHeight": {
+      "name": "Jump Height",
+      "description": "Track vertical jump performance and monitor improvements in explosive power over time."
+    },
+    "reactionTime": {
+      "name": "Reaction Time",
+      "description": "Measure response times to stimuli and improve your reaction speed for competitive advantage."
+    },
+    "visionTracking": {
+      "name": "Vision Tracking",
+      "description": "Analyze eye movement and focus patterns to improve visual reaction speed and awareness."
+    },
+    "performanceAnalytics": {
+      "name": "Performance Analytics",
+      "description": "Comprehensive performance breakdowns with trends, comparisons, and personalized insights."
+    },
+    "enduranceTracker": {
+      "name": "Endurance Tracker",
+      "description": "Monitor stamina and endurance levels during training sessions to optimize long-term performance."
+    },
+    "teamComparison": {
+      "name": "Team Comparison",
+      "description": "Compare individual performance metrics across teammates for collaborative improvement."
+    }
+  },
+  "analyticsTab": {
+    "performanceSummary": "Performance Summary",
+    "weeklyAnalytics": "Weekly Analytics",
+    "highlightsPersonalBests": "Highlights & Personal Bests",
+    "recentTrends": "Recent Trends",
+    "speedImprovement": "Speed Improvement",
+    "jumpHeight": "Jump Height",
+    "reactionTime": "Reaction Time",
+    "visionTracking": "Vision Tracking",
+    "performanceAnalytics": "Performance Analytics",
+    "enduranceTracker": "Endurance Tracker",
+    "teamComparison": "Team Comparison",
+    "last30Days": "Last 30 days",
+    "achieved321KmH": "Achieved 32.1 km/h",
+    "75cmVerticalJump": "75cm vertical jump",
+    "028sReactionTime": "0.28s reaction time",
+    "speedGoal": "Speed Goal",
+    "jumpGoal": "Jump Goal",
+    "reactionGoal": "Reaction Goal",
+    "weeklyPerformance": "Weekly Performance",
+    "skillDistribution": "Skill Distribution",
+    "monthlyProgress": "Monthly Progress"
+  }
+  ,
+  "publicProfile": {
+    "about": "About",
+    "name": "Name",
+    "location": "Location",
+    "sport": "Sport",
+    "language": "Language",
+    "activity": "Activity",
+    "noActivity": "No activity to display",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "certificates": "Certificates",
+    "connections": "Connections",
+    "noSkills": "No skills to display",
+    "noExperience": "No experience to display",
+    "highlights": {
+      "posts": "Posts",
+      "connections": "Connections",
+      "achievements": "Achievements",
+      "skills": "Skills"
+    }
+  },
+  
+  "roleSections": {
+    "common": {
+      "height": "Height",
+      "weight": "Weight"
+    },
+    "player": {
+      "title": "Player Info",
+      "position": "Position",
+      "foot": "Foot",
+      "jerseyNumber": "Jersey Number",
+      "marketValue": "Market Value",
+      "currentTeam": "Current Team"
+    },
+    "coach": {
+      "title": "Coach Info",
+      "experience": "Experience (years)",
+      "specialization": "Specialization",
+      "methodology": "Methodology",
+      "licenses": "Licenses"
+    },
+    "agent": {
+      "title": "Agent Info",
+      "numOfHavePlayers": "Number of Players",
+      "profession": "Profession",
+      "experience": "Experience",
+      "clubYouWorkAt": "Club You Work At",
+      "clients": "Clients",
+      "deals": "Deals"
+    },
+    "scout": {
+      "title": "Scout Info",
+      "specialization": "Specialization",
+      "regions": "Regions",
+      "reports": "Reports",
+      "discoveries": "Discoveries"
+    },
+    "company": {
+      "title": "Company Info",
+      "type": "Type",
+      "website": "Website",
+      "jobs": "Jobs",
+      "sponsorships": "Sponsorships"
+    },
+    "club": {
+      "title": "Club Info",
+      "foundedYear": "Founded Year",
+      "stadium": "Stadium",
+      "colors": "Colors",
+      "players": "Players",
+      "coaches": "Coaches",
+      "teams": "Teams"
+    }
+  },
+  "playerProfile": {
+    "title": "Player Profile",
+    "position": "Position",
+    "jerseyNumber": "Jersey Number",
+    "foot": "Foot",
+    "height": "Height",
+    "weight": "Weight",
+    "marketValue": "Market Value",
+    "currentTeam": "Current Team",
+    "contractStatus": "Contract Status",
+    "contracts": "Contracts",
+    "injuries": "Injuries",
+    "statistics": "Statistics",
+    "transfers": "Transfers",
+    "addContract": "Add Contract",
+    "addInjury": "Add Injury",
+    "noContracts": "No contracts found",
+    "noInjuries": "No injuries found",
+    "noStatistics": "No statistics found",
+    "noTransfers": "No transfers found",
+    "tabs": {
+      "overview": "Overview",
+      "contracts": "Contracts",
+      "injuries": "Injuries",
+      "statistics": "Statistics",
+      "transfers": "Transfers"
+    }
+  },
+  "coachProfile": {
+    "title": "Coach Profile",
+    "experience": "Experience",
+    "numOfAwards": "Number of Awards",
+    "clubYouWorkAt": "Club You Work At",
+    "trainings": "Trainings",
+    "licenses": "Licenses",
+    "coachingHistory": "Coaching History",
+    "addTraining": "Add Training",
+    "addLicense": "Add License",
+    "noTrainings": "No trainings found",
+    "noLicenses": "No licenses found",
+    "noHistory": "No history found",
+    "tabs": {
+      "overview": "Overview",
+      "trainings": "Trainings",
+      "licenses": "Licenses",
+      "history": "History"
+    }
+  },
+  "clubProfile": {
+    "title": "Club Profile",
+    "foundedYear": "Founded Year",
+    "stadium": "Stadium",
+    "taxCard": "Tax Card Number",
+    "colors": "Colors",
+    "sports": "Sports",
+    "totalPlayers": "Total Players",
+    "totalCoaches": "Total Coaches",
+    "totalTeams": "Total Teams",
+    "players": "Players",
+    "coaches": "Coaches",
+    "facilities": "Facilities",
+    "tournaments": "Tournaments",
+    "addPlayer": "Add Player",
+    "addCoach": "Add Coach",
+    "addFacility": "Add Facility",
+    "addTournament": "Add Tournament",
+    "noPlayers": "No players found",
+    "noCoaches": "No coaches found",
+    "noFacilities": "No facilities found",
+    "noTournaments": "No tournaments found",
+    "tabs": {
+      "overview": "Overview",
+      "players": "Players",
+      "coaches": "Coaches",
+      "facilities": "Facilities",
+      "tournaments": "Tournaments"
+    }
+  },
+  "agentProfile": {
+    "title": "Agent Profile",
+    "numOfHavePlayers": "Number of Players",
+    "profession": "Profession",
+    "experience": "Experience",
+    "clubYouWorkAt": "Club You Work At",
+    "agency": "Agency",
+    "totalClients": "Total Clients",
+    "totalDeals": "Total Deals",
+    "clients": "Clients",
+    "noClients": "No clients found",
+    "tabs": {
+      "clients": "Clients",
+      "transfers": "Transfers",
+      "commissions": "Commissions"
+    }
+  },
+  "companyProfile": {
+    "title": "Company Profile",
+    "type": "Type",
+    "website": "Website",
+    "totalJobs": "Total Jobs",
+    "totalSponsorships": "Total Sponsorships",
+    "jobs": "Jobs",
+    "noJobs": "No jobs found",
+    "tabs": {
+      "jobs": "Jobs",
+      "sponsorships": "Sponsorships",
+      "products": "Products"
+    }
+  },
+  "scoutProfile": {
+    "title": "Scout Profile",
+    "specialization": "Specialization",
+    "regions": "Regions",
+    "totalReports": "Total Reports",
+    "totalDiscoveries": "Total Discoveries",
+    "reports": "Reports",
+    "noReports": "No reports found",
+    "tabs": {
+      "reports": "Reports",
+      "discoveries": "Discoveries"
+    }
+  },
+  "profileInfoCards": {
+    "totalVisitors": "Total Visitors",
+    "totalViews": "Total Views",
+    "totalLikes": "Total Likes",
+    "totalComments": "Total Comments",
+    "totalShares": "Total Shares",
+    "totalReactions": "Total Reactions",
+    "totalReposts": "Total Reposts",
+    "viewInsights": "View Insights",
+    "becomeAPlayer": "Become a Pro Player",
+    "unlockYourPotential": "Unlock Your Potential",
+    "subscribeNow": "Subscribe Now",
+    "transactions": "Transactions",
+    "viewAllTransactions": "View All Transactions",
+    "recentPayments": "Recent Payments",
+    "peopleVisited": "people visited",
+    "viewAllPosts": "View All Posts"
+  },
+  "portfolioEditor": {
+    "editPortfolio": "Edit Portfolio",
+    "basicInfo": "Basic Info",
+    "achievements": "Achievements",
+    "experiences": "Experiences",
+    "addAchievement": "Add Achievement",
+    "addExperience": "Add Experience",
+    "name": "Name",
+    "phone": "Phone",
+    "height": "Height",
+    "weight": "Weight",
+    "position": "Position",
+    "jerseyNumber": "Jersey Number",
+    "city": "City",
+    "country": "Country",
+    "foot": "Foot",
+    "left": "Left",
+    "right": "Right",
+    "both": "Both",
+    "dateOfBirth": "Date of Birth",
+    "socialMediaLink": "Social Media Link",
+    "skills": "Skills",
+    "addSkill": "Add Skill",
+    "skillName": "Skill Name",
+    "achievement": "Achievement",
+    "experience": "Experience",
+    "experienceTitle": "Experience Title",
+    "experienceOrganization": "Experience Organization",
+    "experienceDescription": "Experience Description",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "achievementDetails": "Achievement Details",
+    "achievementTitle": "Achievement Title",
+    "present": "Present",
+    "maxAchievements": "You can only add to 2 achievements",
+    "maxExperiences": "You can only add to 2 experiences",
+    "minExperiences": "You must have at least one experience",
+    "currentlyPlaying": "Currently Playing",
+    "yes": "Yes",
+    "no": "No",
+    "positionPlaceholder": "Select Position"
+  }
+}

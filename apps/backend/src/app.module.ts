@@ -1,33 +1,36 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from './modules/database/database.module';
-import { AuthModule } from './modules/auth/auth.module';
-import { AuthAdminModule } from './modules/auth-admin/auth.admin.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthAdminModule } from './auth-admin/auth-admin.module';
 import { UserModule } from './modules/user/user.module';
 import { ContactModule } from './modules/contact/contact.module';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core/constants';
-import { AuthGuard } from './modules/auth/guards/auth.guard';
-import { AdminModule } from './modules/admin/admin.module';
-import { AdminAuthGuard } from './modules/auth-admin/guards/auth.admin.guard';
+import { AuthGuard } from './auth/guards/jwt-auth.guard';
+import { AdminsModule } from './modules/admin/admins.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
-    DatabaseModule,
+    PrismaModule,
     AuthModule,
     AuthAdminModule,
-    AdminModule,
+    AdminsModule,
     UserModule,
     ContactModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
   ],
-  providers: [
-    // Global guard for users only
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
-    },
-  ],
+  // providers: [
+  //   // Global guard for users only
+  //   {
+  //     provide: APP_GUARD,
+  //     useClass: AuthGuard,
+  //   },
+  //   {
+  //     provide: APP_GUARD,
+  //     useClass: JwtAuthAdminGuard,
+  //   },
+  // ],
 })
 export class AppModule {}

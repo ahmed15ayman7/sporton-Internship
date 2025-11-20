@@ -1,0 +1,12 @@
+{
+    "notifications": {
+        "loading": "Loading notifications...",
+        "noNotifications": "No notifications",
+        "noNotificationsDescription": "New notifications will appear here when they arrive",
+        "loadingMore": "Loading more...",
+        "allNotifications": "All notifications",
+        "advancedSettings": "Advanced settings",
+        "title": "Notifications",
+        "description": "Manage and track all your notifications"
+    }
+}

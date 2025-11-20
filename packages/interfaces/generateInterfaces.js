@@ -48,7 +48,7 @@ const parseModel = (block) => {
   const fields = lines.slice(1, -1).map(line => {
     const parts = line.trim().split(/\s+/);
     const [name, rawType, ...rest] = parts;
-
+    if (line.trim().startsWith('@@')) return null;
     // Skip relation definitions (e.g., `users User[]`)
     if (!name || !rawType) return null;
 

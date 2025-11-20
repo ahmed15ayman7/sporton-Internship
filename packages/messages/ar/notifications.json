@@ -1,0 +1,12 @@
+{
+    "notifications": {
+        "loading": "جاري تحميل الإشعارات...",
+        "noNotifications": "لا توجد إشعارات",
+        "noNotificationsDescription": "ستظهر هنا الإشعارات الجديدة عند وصولها",
+        "loadingMore": "جاري تحميل المزيد...",
+        "allNotifications": "تم عرض جميع الإشعارات",
+        "advancedSettings": "الإعدادات المتقدمة",
+        "title": "الإشعارات",
+        "description": "إدارة وتتبع جميع إشعاراتك"
+    }
+}

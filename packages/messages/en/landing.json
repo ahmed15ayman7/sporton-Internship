@@ -1,0 +1,163 @@
+{
+  "navbar": {
+    "logo": "Sporton",
+    "home": "Home",
+    "about": "About",
+    "features": "Features",
+    "vision": "Vision",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Egypt's Premier Athlete Platform",
+        "description": "Discover your talents, showcase your achievements, and connect with the right opportunities in the sports world",
+        "cta": "Join Us Now",
+        "image": "/images/hero-player.jpg"
+      },
+      {
+        "title": "AI-Powered Video Analysis",
+        "description": "Upload your performance video and get detailed analysis and improvement suggestions using artificial intelligence",
+        "cta": "Try AI Analysis",
+        "image": "/images/hero-agent.jpg"
+      },
+      {
+        "title": "Sports Marketplace",
+        "description": "Buy and sell sports equipment, training tools, and athletic wear from the athlete community",
+        "cta": "Browse Marketplace",
+        "image": "/images/hero-club.jpg"
+      }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "description": "With the large number of athletes, many struggle to market themselves and find the right support. Sporton offers a complete and safe sports community, serving as the bridge that connects athletes with clubs, agents, brands, nutritionists, and experts, opening opportunities and helping them achieve their ambitions",
+    "stats": [
+      {
+        "number": "800K+",
+        "label": "Athletes in Egypt"
+      },
+      {
+        "number": "50+",
+        "label": "Sports Types"
+      },
+      {
+        "number": "1000+",
+        "label": "Opportunities Annually"
+      }
+    ]
+  },
+  "features": {
+    "title": "Our Features",
+    "subtitle": "Advanced tools to build your athletic future",
+    "items": [
+      {
+        "title": "Professional Athlete CV",
+        "description": "Create a professional athletic profile showcasing your talents and achievements to agents and coaches",
+        "icon": "UserIcon"
+      },
+      {
+        "title": "AI Video Analysis",
+        "description": "Upload your performance video and get detailed analysis and improvement suggestions using AI",
+        "icon": "VideoCameraIcon"
+      },
+      {
+        "title": "Safe Community",
+        "description": "AI-powered spam detection system ensuring a safe and clean community environment",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "title": "Sports Marketplace",
+        "description": "Buy and sell sports equipment, training tools, and athletic wear",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "title": "Pro Accounts",
+        "description": "Premium accounts with additional features for professional athletes",
+        "icon": "StarIcon"
+      },
+      {
+        "title": "Targeted Advertising",
+        "description": "Specialized advertising platform for sports companies and sponsors",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "vision": {
+    "title": "Our Vision & Mission",
+    "vision": {
+      "title": "Vision",
+      "description": "We envision a future where every athlete has equal opportunity to showcase their talent, get discovered, and grow."
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "Sporton acts as the bridge connecting athletes to opportunities, powered by AI insights, safe communities, and market tools."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help you in your athletic journey",
+    "email": "sporton.inquiry@gmail.com",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred while sending your message"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Sporton. All rights reserved.",
+    "description": "Egypt's Premier Athlete Platform",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "privacyPolicy": {
+  "title": "Privacy Policy",
+  "description": "At Sporton, we are committed to protecting the privacy of all users.",
+  "points": [
+    {
+      "title": "Data Security",
+      "content": "Your personal data is stored with high security standards."
+    },
+    {
+      "title": "No Third Parties",
+      "content": "We never sell or share your data for commercial use."
+    },
+    {
+      "title": "User Rights",
+      "content": "You can edit or delete your data anytime from settings."
+    }
+  ]
+}
+,
+  "refundPolicy": {
+  "title": "Refund Policy",
+  "description": "All subscriptions and paid services on Sporton are non-refundable once activated.",
+  "points": [
+    {
+      "title": "Technical Exceptions",
+      "content": "Refunds are only granted if a technical error on our side prevents the user from accessing the service."
+    },
+    {
+      "title": "Payment Disputes",
+      "content": "Users may submit an official request within 90 days of the transaction in case of a payment dispute."
+    },
+    {
+      "title": "Review Standards",
+      "content": "Requests are reviewed according to international standards (Visa / MasterCard). If approved, refunds are processed to the original payment method **minus the payment provider’s transfer fees**."
+    },
+    {
+      "title": "Refund Method",
+      "content": "No cash refunds are provided; all refunds are processed electronically only."
+    }
+  ]
+}
+
+}

@@ -1,0 +1,80 @@
+{
+  "pricing": {
+    "title": "We offer our exclusive plans at a reasonable price",
+    "subtitle": "Ideal for individuals and small businesses, our Basic Service Level offers essential support and features at an affordable price. Enjoy reliable access to our core services.",
+    "skipNow": "Skip now",
+    "getStarted": "Get Started",
+    "plans": {
+      "exclusive": {
+"popular": "Popular"
+      },
+  "free": {
+    "name": "Free Plan",
+    "price": "0",
+    "currency": "EGP/month",
+    "description": "Start for free with limited features for basic use and trial.",
+    "features": [
+      "Register and open an account",
+      "Create a personal profile with up to 6 posts only",
+      "Communicate with non-friends 5 times per month (such as agents, doctors, clubs, coaches, or other players)",
+      "No access to see who viewed your profile",
+      "No access to AI video analysis",
+      "Post videos and photos in standard quality"
+    ]
+  },
+  "pro": {
+    "name": "Pro Account",
+    "price": "25",
+    "yearlyPrice": "250",
+    "currency": "EGP/month",
+    "yearlyCurrency": "EGP/year",
+    "description": "Professional features for serious users with better experience and higher quality.",
+    "features": [
+      "Register and open an account",
+      "Create a personal profile with up to 15 posts only",
+      "Communicate with non-friends 15 times per month (such as agents, doctors, clubs, coaches, or other players)",
+      "See who viewed your profile",
+      "AI video analysis available 10 times per month for free",
+      "Post videos and photos in high quality"
+    ]
+  },
+  "pro_plus": {
+    "name": "Pro+ Account",
+    "price": "65",
+    "yearlyPrice": "650",
+    "currency": "EGP/month",
+    "yearlyCurrency": "EGP/year",
+    "description": "For professional users who need maximum flexibility and performance.",
+    "features": [
+      "Register and open an account",
+      "Create a personal profile with up to 28 posts only",
+      "Unlimited communication with non-friends per month (such as agents, doctors, clubs, coaches, or other players)",
+      "See who viewed your profile",
+      "AI video analysis available 25 times per month for free",
+      "Post videos and photos in ultra-high quality",
+      "Promote posts",
+      "Promote products"
+    ]
+  },
+  "pro_mo2saat": {
+    "name": "Pro Mo2saat",
+    "price": "150",
+    "yearlyPrice": "1500",
+    "currency": "EGP/month",
+    "yearlyCurrency": "EGP/year",
+    "description": "A plan designed for institutions and clubs with maximum freedom and support.",
+    "features": [
+      "Register and open an account",
+      "Create an unlimited personal profile",
+      "Unlimited communication with non-friends per month (such as agents, doctors, clubs, coaches, or other players)",
+      "See who viewed your profile",
+      "AI video analysis available 35 times per month for free",
+      "Post videos and photos in ultra-high quality",
+      "Promote posts",
+      "Promote products"
+    ]
+  }
+}
+
+  }
+}

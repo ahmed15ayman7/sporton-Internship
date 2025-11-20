@@ -1,0 +1,398 @@
+{
+  "profileHeader": {
+    "removeFromFriendsList": "إزالة",
+    "addToFriendsList": "إتصال",
+    "cancelRequest": "إلغاء الطلب",
+    "follow": "متابعة",
+    "unfollow": "إلغاء المتابعة",
+    "unBlock": "إلغاء الحظر",
+    "acceptRequest": "قبول الطلب"
+  },
+  "ePortfolioTab": {
+    "edit": "تعديل",
+    "save": "حفظ",
+    "close": "إغلاق",
+    "name": "الاسم",
+    "age": "العمر",
+    "height": "الطول",
+    "weight": "الوزن",
+    "position": "المنصب",
+    "location": "الموقع",
+    "achievements": "الأوسمة",
+    "careerStatistics": "الإحصائيات المهنية",
+    "matches": "المباريات",
+    "goals": "الأهداف",
+    "assists": "المساعدات",
+    "skills": "المهارات",
+    "skill": "المهارة",
+    "recentAchievements": "الأوسمات الأخيرة",
+    "experience": "الخبرة",
+    "present": "حالي",
+    "awards": "الأوسمة",
+    "kg": "كجم",
+    "cm": "سم",
+    "forward": "المركز الأمامي",
+    "cairo": "القاهرة",
+    "egypt": "مصر",
+    "player": "اللاعب",
+    "playerProfile": "ملف اللاعب",
+    "jerseyNumber": "رقم القميص",
+    "noAchievements": "لا يوجد انجازات لعرضها اضافة انجاز جديد",
+    "noExperience": "لا يوجد خبرات لعرضها اضافة خبرة جديدة",
+    "noSkills": "لا يوجد مهارات لعرضها اضافة مهارة جديدة",
+    "yes": "نعم",
+    "no": "لا",
+    "currentlyPlaying": "في نادي حاليا"
+  },
+  "profileTabs": {
+    "ePortfolio": "البروفايل الرياضي",
+    "professional": "البروفايل المهني",
+    "connections": "الفريق",
+    "aiTools": "ادوات التحليل",
+    "analytics": "التحليلات",
+    "posts": "المنشورات"
+  },
+  "connectionsTab": {
+    "search": "البحث عن إتصال",
+    "name": "الاسم",
+    "sport": "الرياضة",
+    "online": "الحالة المتصل",
+    "allConnections": "الإتصالات الكلية",
+    "loadingFriendships": "جاري تحميل الإتصالات",
+    "noFriendships": "لا يوجد إتصالات",
+    "message": "الرسالة",
+    "viewProfile": "عرض الملف الشخصي",
+    "addToFavorites": "إضافة إلى المفضلة",
+    "removeConnection": "إزالة الإتصال",
+    "blockUser": "حظر المستخدم",
+    "reportUser": "الإبلاغ عن المستخدم",
+    "ago": "منذ",
+    "addConnection": "إضافة إتصال",
+    "cancelRequest": "إلغاء الطلب",
+    "follow": "متابعة",
+    "unfollow": "إلغاء المتابعة",
+    "unBlock": "إلغاء الحظر"
+  },
+  "aiToolsTab": {
+    "uploadVideo": "رفع الفيديو هنا",
+    "chooseFile": "اختيار الملف",
+    "changeVideo": "تغيير الفيديو",
+    "analyzing": "جاري التحليل...",
+    "analyzeVideo": "تحليل الفيديو",
+    "analysisResults": "نتائج التحليل",
+    "supports": "يدعم .mp4, .mov ملفات",
+    "modalTitle":"ادوات التحليل",
+    "realTimePerformanceMetrics": "المقاييس الأدائية الحقيقية من آخر جلسة",
+    "downloadPDF": "تحميل PDF",
+    "speedTracker": {
+      "name": "متحرك السرعة",
+      "description": "تحليل سرعة السباق, الأنماط التسارع, والمقاييس العليا للسرعة من الفيديو التدريبي."
+    },
+    "jumpHeight": {
+      "name": "ارتفاع القفز",
+      "description": "تتبع أداء القفز ومراقبة التحسن في القوة الانفجارية على مر الزمن."
+    },
+    "reactionTime": {
+      "name": "وقت الاستجابة",
+      "description": "قياس وقت الاستجابة للإثارة وتحسين سرعة الاستجابة للمنافسة التنافسية."
+    },
+    "visionTracking": {
+      "name": "تتبع الرؤية",
+      "description": "تحليل حركة العين والتركيز وتحسين سرعة الاستجابة البصرية والوعي."
+    },
+    "performanceAnalytics": {
+      "name": "تحليل الأداء",
+      "description": "تحليل أداء شامل مع الاتجاهات, المقارنات, والتوصيات الشخصية."
+    },
+    "enduranceTracker": {
+      "name": "متحرك الصلابة",
+      "description": "مراقبة مستويات الصلابة والصلابة خلال جلسات التدريب لتحسين الأداء في المدى الطويل."
+    },
+    "teamComparison": {
+      "name": "مقارنة الفريق",
+      "description": "مقارنة مقاييس الأداء الفردية عبر الفرق للتحسين المشترك."
+    }
+  },
+  "analyticsTab": {
+    "performanceSummary": "ملخص الأداء",
+    "weeklyAnalytics": "التحليلات الأسبوعية",
+    "highlightsPersonalBests": "الأعلى الأفضل",
+    "recentTrends": "الاتجاهات الأخيرة",
+    "speedImprovement": "تحسين السرعة",
+    "jumpHeight": "ارتفاع القفز",
+    "reactionTime": "وقت الاستجابة",
+    "visionTracking": "تتبع الرؤية",
+    "performanceAnalytics": "تحليل الأداء",
+    "enduranceTracker": "متحرك الصلابة",
+    "teamComparison": "مقارنة الفريق",
+    "last30Days": "آخر 30 يوم",
+    "achieved321KmH": "32.1 كم/ساعة",
+    "75cmVerticalJump": "75 سم قفز عمودي",
+    "028sReactionTime": "0.28 ثانية وقت الاستجابة",
+    "speedGoal": "هدف السرعة",
+    "jumpGoal": "هدف القفز",
+    "reactionGoal": "هدف وقت الاستجابة",
+    "weeklyPerformance": "الأداء الأسبوعي",
+    "skillDistribution": "توزيع المهارات",
+    "monthlyProgress": "التقدم الشهري"
+  }
+  ,
+  "publicProfile": {
+    "about": "نبذة",
+    "name": "الاسم",
+    "location": "الموقع",
+    "sport": "الرياضة",
+    "language": "اللغة",
+    "activity": "النشاط",
+    "noActivity": "لا يوجد نشاط لعرضه",
+    "skills": "المهارات",
+    "experience": "الخبرات",
+    "education": "التعليم",
+    "certificates": "الشهادات",
+    "connections": "الاتصالات",
+    "noSkills": "لا يوجد مهارات لعرضها",
+    "noExperience": "لا يوجد خبرات لعرضها",
+    "highlights": {
+      "posts": "المنشورات",
+      "connections": "الاتصالات",
+      "achievements": "الإنجازات",
+      "skills": "المهارات"
+    }
+  },
+  
+  "roleSections": {
+    "common": {
+      "height": "الطول",
+      "weight": "الوزن"
+    },
+    "player": {
+      "title": "بيانات اللاعب",
+      "position": "المركز",
+      "foot": "القدم",
+      "jerseyNumber": "رقم القميص",
+      "marketValue": "القيمة السوقية",
+      "currentTeam": "الفريق الحالي"
+    },
+    "coach": {
+      "title": "بيانات المدرب",
+      "experience": "سنوات الخبرة",
+      "specialization": "التخصص",
+      "methodology": "المنهجية",
+      "licenses": "الرخص"
+    },
+    "agent": {
+      "title": "بيانات الوكيل",
+      "numOfHavePlayers": "عدد اللاعبين الذين يملكهم",
+      "profession": "المهنة",
+      "experience": "الخبرة",
+      "clubYouWorkAt": "النادي الذي تعمل فيه",
+      "agency": "الوكالة",
+      "clients": "العملاء",
+      "deals": "الصفقات"
+    },
+    "scout": {
+      "title": "بيانات الكشاف",
+      "specialization": "التخصص",
+      "regions": "المناطق",
+      "reports": "التقارير",
+      "discoveries": "الاكتشافات"
+    },
+    "company": {
+      "title": "بيانات الشركة",
+      "type": "النوع",
+      "website": "الموقع الإلكتروني",
+      "jobs": "الوظائف",
+      "sponsorships": "الرعايات"
+    },
+    "club": {
+      "title": "بيانات النادي",
+      "foundedYear": "سنة التأسيس",
+      "stadium": "الملعب",
+      "colors": "الألوان",
+      "players": "اللاعبون",
+      "coaches": "المدربون",
+      "teams": "الفرق"
+    }
+  },
+  "playerProfile": {
+    "title": "ملف اللاعب",
+    "position": "المركز",
+    "jerseyNumber": "رقم القميص",
+    "foot": "القدم",
+    "height": "الطول",
+    "weight": "الوزن",
+    "marketValue": "القيمة السوقية",
+    "currentTeam": "الفريق الحالي",
+    "contractStatus": "حالة العقد",
+    "contracts": "العقود",
+    "injuries": "الإصابات",
+    "statistics": "الإحصائيات",
+    "transfers": "الانتقالات",
+    "addContract": "إضافة عقد",
+    "addInjury": "إضافة إصابة",
+    "noContracts": "لا توجد عقود",
+    "noInjuries": "لا توجد إصابات",
+    "noStatistics": "لا توجد إحصائيات",
+    "noTransfers": "لا توجد انتقالات",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "contracts": "العقود",
+      "injuries": "الإصابات",
+      "statistics": "الإحصائيات",
+      "transfers": "الانتقالات"
+    }
+  },
+  "coachProfile": {
+    "title": "ملف المدرب",
+    "experience": "الخبرة",
+    "numOfAwards": "عدد الجوائز",
+    "clubYouWorkAt": "النادي الذي تعمل فيه",
+    "trainings": "التدريبات",
+    "licenses": "الرخص",
+    "coachingHistory": "تاريخ التدريب",
+    "addTraining": "إضافة تدريب",
+    "addLicense": "إضافة رخصة",
+    "noTrainings": "لا توجد تدريبات",
+    "noLicenses": "لا توجد رخص",
+    "noHistory": "لا يوجد تاريخ",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "trainings": "التدريبات",
+      "licenses": "الرخص",
+      "history": "التاريخ"
+    }
+  },
+  "clubProfile": {
+    "title": "ملف النادي",
+    "foundedYear": "سنة التأسيس",
+    "stadium": "الملعب",
+    "taxCard": "الرقم الضريبي",
+    "colors": "الألوان",
+    "sports": "الرياضات",
+    "totalPlayers": "إجمالي اللاعبين",
+    "totalCoaches": "إجمالي المدربين",
+    "totalTeams": "إجمالي الفرق",
+    "players": "اللاعبون",
+    "coaches": "المدربون",
+    "facilities": "المرافق",
+    "tournaments": "البطولات",
+    "addPlayer": "إضافة لاعب",
+    "addCoach": "إضافة مدرب",
+    "addFacility": "إضافة مرفق",
+    "addTournament": "إضافة بطولة",
+    "noPlayers": "لا يوجد لاعبون",
+    "noCoaches": "لا يوجد مدربون",
+    "noFacilities": "لا توجد مرافق",
+    "noTournaments": "لا توجد بطولات",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "players": "اللاعبون",
+      "coaches": "المدربون",
+      "facilities": "المرافق",
+      "tournaments": "البطولات"
+    }
+  },
+  "agentProfile": {
+    "title": "ملف الوكيل",
+    "numOfHavePlayers": "عدد اللاعبين الذين يملكهم",
+    "profession": "المهنة",
+    "experience": "الخبرة",
+    "clubYouWorkAt": "النادي الذي تعمل فيه",
+    "totalClients": "إجمالي العملاء",
+    "totalDeals": "إجمالي الصفقات",
+    "clients": "العملاء",
+    "noClients": "لا يوجد عملاء",
+    "tabs": {
+      "clients": "العملاء",
+      "transfers": "الانتقالات",
+      "commissions": "العمولات"
+    }
+  },
+  "companyProfile": {
+    "title": "ملف الشركة",
+    "type": "النوع",
+    "website": "الموقع الإلكتروني",
+    "totalJobs": "إجمالي الوظائف",
+    "totalSponsorships": "إجمالي الرعايات",
+    "jobs": "الوظائف",
+    "noJobs": "لا توجد وظائف",
+    "tabs": {
+      "jobs": "الوظائف",
+      "sponsorships": "الرعايات",
+      "products": "المنتجات"
+    }
+  },
+  "scoutProfile": {
+    "title": "ملف الكشاف",
+    "specialization": "التخصص",
+    "regions": "المناطق",
+    "totalReports": "إجمالي التقارير",
+    "totalDiscoveries": "إجمالي الاكتشافات",
+    "reports": "التقارير",
+    "noReports": "لا توجد تقارير",
+    "tabs": {
+      "reports": "التقارير",
+      "discoveries": "الاكتشافات"
+    }
+  },
+  "profileInfoCards": {
+    "totalVisitors": "إجمالي الزوار",
+    "totalViews": "إجمالي المشاهدات",
+    "totalLikes": "إجمالي المعجبين",
+    "totalComments": "إجمالي التعليقات",
+    "totalShares": "إجمالي المشاركات",
+    "totalReactions": "إجمالي الردود",
+    "totalReposts": "إجمالي النشرات",
+    "viewInsights": "عرض الزوار",
+    "becomeAPlayer": "صبح محترفًا",
+    "unlockYourPotential": "إفتح إمكاناتك",
+    "subscribeNow": "اشترك الآن",
+    "transactions": "المعاملات",
+    "viewAllTransactions": "عرض جميع المعاملات",
+    "recentPayments": "المدفوعات الأخيرة",
+    "peopleVisited": "الزوار",
+    "viewAllPosts": "عرض جميع المنشورات"
+  },
+  "portfolioEditor": {
+    "editPortfolio": "تعديل البروفايل",
+    "basicInfo": "المعلومات الأساسية",
+    "achievements": "الأوسمات",
+    "experiences": "الخبرات",
+    "addAchievement": "إضافة اوسمة",
+    "addExperience": "إضافة خبرة",
+    "name": "الاسم",
+    "phone": "الهاتف",
+    "height": "الطول",
+    "weight": "الوزن",
+    "position": "المنصب",
+    "jerseyNumber": "رقم القميص",
+    "city": "المدينة",
+    "country": "البلد",
+    "foot": "القدم",
+    "left": "يسار",
+    "right": "يمين",
+    "both": "كلاهما",
+    "dateOfBirth": "تاريخ الميلاد",
+    "socialMediaLink": "رابط الوسائط الاجتماعية",
+    "skills": "المهارات",
+    "addSkill": "إضافة مهارة",
+    "skillName": "اسم المهارة",
+    "achievement": "اوسمة",
+    "experience": "خبرة",
+    "experienceTitle": "اسم الخبرة",
+    "experienceOrganization": "المنصب",
+    "experienceDescription": "الوصف",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التعديلات",
+    "achievementDetails": "تفاصيل الانجاز",
+    "achievementTitle": "اسم الانجاز",
+    "present": "حالي",
+    "maxAchievements": "يمكنك إضافة فقط 2 انجازات",
+    "maxExperiences": "يمكنك إضافة فقط 2 خبرات",
+    "minExperiences": "يجب أن يكون لديك على الأقل خبرة واحدة",
+    "currentlyPlaying": "في نادي حاليا",
+    "yes": "نعم",
+    "no": "لا",
+    "positionPlaceholder": "اختر المركز"
+  }
+}

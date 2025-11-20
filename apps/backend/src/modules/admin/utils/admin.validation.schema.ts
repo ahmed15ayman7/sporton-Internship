@@ -1,4 +1,3 @@
-import { RegisterDTO } from 'src/modules/auth/dto/auth.dto';
 import z, { ZodType } from 'zod';
 import { AdminRole, AdminStatus } from '@shared/prisma';
 import { CreateAdminDto } from 'src/dtos/Admin.create.dto';

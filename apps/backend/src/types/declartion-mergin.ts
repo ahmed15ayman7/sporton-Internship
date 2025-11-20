@@ -1,9 +1,13 @@
-import { AdminResponseDTO } from 'src/modules/auth-admin/dto/auth.admin.dto';
-import { UserResponseDTO } from 'src/modules/auth/dto/auth.dto';
+
+import { UserResponseDTO } from 'src/auth/dto/auth.dto';
+import { Admin } from '@shared/prisma';
+import { AdminResponseDTO } from 'src/auth-admin/dto/auth-admin.dto';
 
 export type EnvVariables = {
   JWT_SECRET: string;
   IMAGEKIT_PRIVATE_KEY: string;
+  JWT_REFRESH_SECRET: string;
+  JWT_REFRESH_EXPIRATION: string;
 };
 
 declare global {

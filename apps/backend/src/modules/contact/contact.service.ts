@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
+import { PrismaService } from '../../prisma/prisma.service';
 import { ContactUs } from '@shared/prisma';
 import { CreateContactUsDto } from '../../dtos/ContactUs.create.dto';
 
@@ -12,17 +12,17 @@ import { UpdateContactUsDto } from '../../dtos/ContactUs.update.dto';
 
 @Injectable()
 export class ContactService {
-  constructor(private prismaService: DatabaseService) {}
+  constructor(private prisma: PrismaService) {}
 
   async create(contactDto: CreateContactUsDto) {
-    return this.prismaService.contactUs.create({ data: contactDto });
+    return this.prisma.contactUs.create({ data: contactDto });
   }
 
   findAll(
     query: PaginationQueryType,
   ): Promise<PaginationResponseType<ContactUs>> {
-    return this.prismaService.$transaction(async (prisma) => {
-      const pagination = this.prismaService.handleQueryPagination(query);
+    return this.prisma.$transaction(async (prisma) => {
+      const pagination = this.prisma.handleQueryPagination(query);
       const contacts = await prisma.contactUs.findMany({
         ...removeFields(pagination, ['page']),
       });
@@ -30,7 +30,7 @@ export class ContactService {
       const count = await prisma.contactUs.count();
       return {
         data: contacts,
-        ...this.prismaService.formatPaginationResponse({
+        ...this.prisma.formatPaginationResponse({
           page: pagination.page,
           count,
           limit: pagination.take,
@@ -40,17 +40,17 @@ export class ContactService {
   }
 
   async findOne(id: string) {
-    return this.prismaService.contactUs.findUnique({ where: { id } });
+    return this.prisma.contactUs.findUnique({ where: { id } });
   }
 
   async update(id: string, contactUpdateDto: UpdateContactUsDto) {
-    return this.prismaService.contactUs.update({
+    return this.prisma.contactUs.update({
       where: { id },
       data: contactUpdateDto,
     });
   }
 
   async remove(id: string) {
-    return this.prismaService.contactUs.delete({ where: { id } });
+    return this.prisma.contactUs.delete({ where: { id } });
   }
 }

@@ -41,8 +41,13 @@ model User {
   isOnline  Boolean @default(false)
   isChoseRole Boolean @default(false)
   isProfileCompleted Boolean @default(false)
+  isDeleted Boolean @default(false)
   notifications Notification[] // الإشعارات
   notificationsSender Notification[] @relation("NotificationSender")
+  posts         Post[] // المنشورات
+  comments      Comment[] // التعليقات
+  reactions     Reaction[] // الردود
+  postsViews Post[] @relation("PostViews")
 }
 enum UserStatus {
   ACTIVE // نشط
@@ -206,4 +211,86 @@ model ContactUs {
     message           String
     createdAt         DateTime @default(now())
     updatedAt         DateTime @updatedAt
+}
+model Post {
+  id            String     @id @default(cuid())
+  text          String?
+  image         String?
+  video         String?
+  isAchievement Boolean    @default(false)
+  author        User       @relation(fields: [authorId], references: [id])
+  authorId      String
+  createdAt     DateTime   @default(now())
+  visibility    PostVisibility @default(PUBLIC)
+  isSponsored   Boolean      @default(false)
+  isJob         Boolean      @default(false)
+  isEPortofolio Boolean      @default(false)
+  isFake        Boolean      @default(false)
+  tags          String[]
+  location      String?
+  reactions     Reaction[] 
+  comments      Comment[]
+  views         User[] @relation("PostViews")
+  reposts       Post[] @relation("PostReposts")
+  repostedFrom  Post? @relation("PostReposts", fields: [repostedFromId], references: [id],onDelete: Cascade)
+  repostedFromId String?
+  engagementMetrics EngagementMetrics[]
+}
+// موديل لتحليل الأداء
+model EngagementMetrics {
+  id             String      @id @default(cuid())
+  contentId      String
+  contentType    ContentType
+  viewCount      Int         @default(0)
+  avgTimeSpent   Float       @default(0)
+  engagementRate Float       @default(0)
+  bounceRate     Float       @default(0)
+  peakHours      Json // ساعات الذروة
+  demographics   Json // البيانات الديموغرافية
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  content        Post        @relation(fields: [contentId], references: [id],onDelete: Cascade)
+}
+enum ContentType {
+  POST
+  AD
+  EVENT
+  ARTICLE
+  TRAINING
+  JOB
+}
+enum PostVisibility {
+  PUBLIC
+  FRIENDS
+  PRIVATE
+}
+enum EmojiType {
+  LOVE
+  HAHA
+  LIKE
+  ANGRY
+  CLAP
+}
+
+model Reaction {
+  id     String @id @default(cuid())
+  emoji  EmojiType
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+  post   Post?   @relation(fields: [postId], references: [id],onDelete: Cascade)
+  postId String?
+  comment   Comment? @relation(fields: [commentId], references: [id],onDelete: Cascade)
+  commentId String?
+  createdAt DateTime @default(now())
+}
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  author    User     @relation(fields: [authorId], references: [id],onDelete: Cascade)
+  authorId  String
+  createdAt DateTime @default(now())
+  post      Post?    @relation(fields: [postId], references: [id],onDelete: Cascade)
+  postId    String?
+
+  reactions Reaction[]
 }

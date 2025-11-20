@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@sporton/ui/components/button";
-import { Input } from "@sporton/ui/components/input";
+import { Button } from "@sporton/ui";
+import { Input } from "@sporton/ui";
 
 import { useState } from 'react';
 import api, { ApiClient, authApi } from "@sporton/apis";

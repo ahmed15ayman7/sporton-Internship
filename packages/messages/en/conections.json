@@ -1,0 +1,36 @@
+{
+    "Invitations": {
+        "title": "Invitations"
+    },
+    "PeopleYouMayKnow": {
+        "title": "People you may know"
+    },
+    "PagesToFollow": {
+        "title": "Pages to follow"
+    },
+    "PremiumCard": {
+        "title": "A different step to start",
+        "description": "More opportunities.. access to more.. features that will benefit you",
+        "button": "Start your premium account now for 20 EGP only"
+    },
+    "ClubsToFollow": {
+        "title": "Clubs to follow"
+    },
+    "connections": {
+        "title": "Connections",
+        "description": "Connections",
+        "button": "Connections",
+        "sendingRequest": "Sending request...",
+        "requestSent": "Request sent successfully...",
+        "errorSendingRequest": "An error occurred while sending the request",
+        "followedCoach": "Followed coach successfully...",
+        "errorFollowingCoach": "An error occurred while following the coach",
+        "accepted": "Request accepted successfully...",
+        "errorAccepting": "An error occurred while accepting the request",
+        "rejected": "Request rejected successfully...",
+        "errorRejecting": "An error occurred while rejecting the request",
+        "cannotSendToSelf": "You cannot send the request to yourself",
+        "cannotSendToGuest": "You cannot send the request to the user who is using the guest account",
+        "cannotRemoveFriend": "You cannot remove the friend"
+    }
+}

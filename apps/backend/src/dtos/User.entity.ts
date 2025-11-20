@@ -1,6 +1,17 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { NotificationEntity } from "./Notification.entity";
-import { Role, UserStatus, Sport, Notification } from "@shared/prisma";
+import { PostEntity } from "./Post.entity";
+import { CommentEntity } from "./Comment.entity";
+import { ReactionEntity } from "./Reaction.entity";
+import {
+  Role,
+  UserStatus,
+  Sport,
+  Notification,
+  Post,
+  Comment,
+  Reaction,
+} from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";
 @Entity()
@@ -101,6 +112,11 @@ export class UserEntity {
   @Column()
   isProfileCompleted: boolean;
 
+  @ApiProperty({ type: "boolean" })
+  // Field: isDeleted, Type: boolean
+  @Column()
+  isDeleted: boolean;
+
   @ApiProperty({ type: NotificationEntity })
   // Field: notifications, Type: Notification[]
   @Column()
@@ -110,4 +126,24 @@ export class UserEntity {
   // Field: notificationsSender, Type: Notification[]
   @Column()
   notificationsSender: Notification[];
+
+  @ApiProperty({ type: PostEntity })
+  // Field: posts, Type: Post[]
+  @Column()
+  posts: Post[];
+
+  @ApiProperty({ type: CommentEntity })
+  // Field: comments, Type: Comment[]
+  @Column()
+  comments: Comment[];
+
+  @ApiProperty({ type: ReactionEntity })
+  // Field: reactions, Type: Reaction[]
+  @Column()
+  reactions: Reaction[];
+
+  @ApiProperty({ type: PostEntity })
+  // Field: postsViews, Type: Post[]
+  @Column()
+  postsViews: Post[];
 }

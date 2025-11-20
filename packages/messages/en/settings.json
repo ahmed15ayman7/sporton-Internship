@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "title": "Settings",
+    "loadingSettings": "Loading settings...",
+    "editProfile": {
+      "title": "Edit Account",
+      "name": "Name",
+      "namePlaceholder": "Enter your real name as you want it to appear on your profile",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email to verify your account",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number to verify your account",
+      "sportDetails": "Sport Details",
+      "sportType": "Sport Type",
+      "sportTypePlaceholder": "Enter your sport type",
+      "sport": "Sport",
+      "sportPlaceholder": "Enter your sport",
+      "position": "Position",
+      "positionPlaceholder": "Enter your position if it is exists",
+      "media": "Media",
+      "profilePicture": "Profile Picture",
+      "uploadPhotoHere": "Upload your profile picture here",
+      "supportsPngJpegFiles": "Supports .png, .jpeg files",
+      "chooseFile": "Choose File",
+      "coverPhoto": "Cover Photo",
+      "uploadCoverPhoto": "Upload Cover Photo",
+      "saveChanges": "Save Changes",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "imageUploaded": "Image uploaded successfully",
+      "errorOccurred": "An error occurred while saving the changes",
+      "changesSaved": "Changes saved successfully"
+    },
+    "transactions": {
+      "title": "Transactions",
+      "noTransactions": "No transactions found",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "viewInvoice": "View Invoice",
+      "contactSupport": "Contact Support"
+    },
+    "level": {
+      "title": "Your Level",
+      "currentLevel": "Current Level",
+      "progress": "Progress",
+      "nextLevel": "Next Level",
+      "youEarnedPoints": "You have earned <strong>{points}</strong> points.",
+      "pointsToNextLevel": "To reach the next level, you need <strong>{points}</strong> more points.",
+      "nextLevelGoal": "Next Level Goal",
+      "recentMilestones": "Recent Milestones",
+      "tipsToImprove": "Tips to Improve",
+      "yourJourneyStartsHere": "Your journey starts here!",
+      "participateInActivities": "Participate in activities, track your achievements, and level up to unlock your full potential."
+    },
+    "support": {
+      "title": "Help & Support",
+      "contactSupport": "Contact Support",
+      "faq": "FAQ",
+      "reportProblem": "Report a Problem",
+      "frequentlyAskedQuestions": "Frequently Asked Questions",
+      "loadingFAQs": "Loading FAQs...",
+      "viewAllFAQs": "View All",
+      "contactUs": "Contact Us",
+      "emailUs": "Email Us",
+      "weWillReplyWithin24Hours": "We will reply to your request within 24 hours.",
+      "liveChat": "Live Chat",
+      "callUs": "Call Us",
+      "speakWithOurSupportTeamForUrgentIssues": "Speak with our support team for urgent issues.",
+      "shareYourIdeasOrReportAProblemToHelpUsImproveSporton": "Share your ideas or report a problem to help us improve Sporton.",
+      "sendFeedback": "Send Feedback",
+      "available": "Available {hours}."
+    },
+    "savedPosts": {
+      "title": "Saved Posts",
+      "noSavedPosts": "No saved posts yet",
+      "loadingSavedPosts": "Loading saved posts..."
+    },
+    "logout": {
+      "title": "Log Out",
+      "confirmLogout": "Are you sure you want to log out?",
+      "cancel": "Cancel",
+      "logout": "Log Out"
+    },
+    "tabs": {
+      "editProfile": "Edit Account",
+      "transactions": "Transactions",
+      "level": "Your Level",
+      "support": "Help & Support",
+      "savedPosts": "Saved Posts",
+      "logout": "Log Out"
+    },
+    "upload": {
+      "changePhoto": "Change Photo",
+      "uploading": "Uploading...",
+      "uploadFailed": "Upload Failed"
+    },
+    "alerts": {
+      "changesSaved": "Changes saved successfully",
+      "errorOccurred": "An error occurred"
+    }
+  }
+}

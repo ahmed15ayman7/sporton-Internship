@@ -1,0 +1,36 @@
+{
+    "Invitations": {
+        "title": "الدعوات "
+    },
+    "PeopleYouMayKnow": {
+        "title": "الأشخاص الذين يمكن أن تعرفهم"
+    },
+    "PagesToFollow": {
+        "title": "الصفحات التي يمكنك متابعتها"
+    },
+    "PremiumCard": {
+        "title": "خطوة لبداية مختلفة",
+        "description": "فرص أكتر.. وصول أكبر.. مميزات هتفيدك",
+        "button": "ابدأ البريميوم بـ  ٢٠ جنيه فقط"
+    },
+    "ClubsToFollow": {
+        "title": "الأندية التي يمكنك متابعتها"
+    },
+    "connections": {
+        "title": "الإتصالات",
+        "description": "الإتصالات",
+        "button": "الإتصالات",
+        "sendingRequest": "جاري إرسال الطلب...",
+        "requestSent": "تم إرسال الطلب بنجاح...",
+        "errorSendingRequest": "حدث خطأ أثناء إرسال الطلب",
+        "followedCoach": "تم التابعة للمدرب بنجاح...",
+        "errorFollowingCoach": "حدث خطأ أثناء التابعة للمدرب",
+        "accepted": "تم قبول الطلب بنجاح...",
+        "errorAccepting": "حدث خطأ أثناء قبول الطلب",
+        "rejected": "تم رفض الطلب بنجاح...",
+        "errorRejecting": "حدث خطأ أثناء رفض الطلب",
+        "cannotSendToSelf": "لا يمكنك إرسال الطلب لنفسك",
+        "cannotSendToGuest": "لا يمكنك إرسال الطلب للمستخدم الذي يستخدم حساب الضيف",
+        "cannotRemoveFriend": "لا يمكنك إزالة الصديق"
+    }
+}

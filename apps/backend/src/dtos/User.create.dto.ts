@@ -1,5 +1,13 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Role, UserStatus, Sport, Notification } from "@shared/prisma";
+import {
+  Role,
+  UserStatus,
+  Sport,
+  Notification,
+  Post,
+  Comment,
+  Reaction,
+} from "@shared/prisma";
 
 import { Entity, Column } from "typeorm";
 @Entity()
@@ -94,4 +102,9 @@ export class CreateUserDto {
   // Field: isProfileCompleted, Type: boolean
   @Column()
   isProfileCompleted: boolean;
+
+  @ApiProperty({ type: "boolean" })
+  // Field: isDeleted, Type: boolean
+  @Column()
+  isDeleted: boolean;
 }

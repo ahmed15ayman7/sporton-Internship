@@ -1,15 +1,57 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
+  label?: string;
+  error?: string;
+  helperText?: string;
+  icon?: React.ReactNode;
 }
 
-export const Input = ({ className, ...props }: InputProps) => {
+export const Input: React.FC<InputProps> = ({
+  label,
+  error,
+  helperText,
+  className,
+  icon,
+  defaultValue,
+  type,
+  ...props
+}) => {
   return (
-    <input
-      className={`border border-gray-300 p-2 rounded-lg w-full outline-none ${className}`}
-      {...props}
-    />
+    <div className="space-y-1">
+      {label && (
+        <label className="block text-sm font-medium text-gray-700">
+          {label}
+        </label>
+      )}
+      <div className="relative h-full">
+        {icon && (
+          <div style={{ height: '100%',paddingRight: '.3rem' }} className="absolute inset-y-0 left-0 top-0  pl-3 flex items-center  pointer-events-none text-gray-400">
+            {icon}
+          </div>
+        )}
+        <input
+          style={{ paddingRight: icon ? '1.5rem' : '.4rem' }}
+          className={clsx(
+            'w-full px-3 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-main focus:border-transparent',
+            error ? 'border-error-main' : 'border-secondary-main',
+            icon ? 'pr-16' : '',
+            className
+          )}
+          type={type}
+          autoComplete={
+            type === 'password' ? 'current-password' : 
+            type === 'email' ? 'email' : 
+            type === 'text' && (props.name?.includes('name') || props.placeholder?.includes('name') || props.placeholder?.includes('اسم')) ? 'name' :
+            'off'
+          }
+          {...props}
+          defaultValue={defaultValue}
+        />
+      </div>
+      {error && <p className="text-sm text-error-main">{error}</p>}
+      {helperText && !error && <p className="text-sm text-gray-500">{helperText}</p>}
+    </div>
   );
-};
-
+}; 

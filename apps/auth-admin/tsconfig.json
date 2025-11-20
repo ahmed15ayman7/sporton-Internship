@@ -1,0 +1,37 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@sporton/ui": [
+        "../../packages/ui/src"
+      ],
+      "@sporton/apis": [
+        "../../packages/apis/src"
+      ],
+      "@sporton/interfaces": [
+        "../../packages/interfaces/index.ts"
+      ],
+      "@shared/prisma": [
+        "../../packages/shared/generated/prisma_client"
+      ],
+      "@sporton/messages": [
+        "../../packages/messages/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "types/**/*.d.ts",
+    ".next_auth/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

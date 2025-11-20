@@ -12,3 +12,12 @@
 /apps/*/.env 
 .env.development
 .env.production
+**/.env.*
+node_modules
+*/node_modules
+.env*
+.env
+.playwright-mcp
+qa-testing
+.DS_Store
+**/.DS_Store

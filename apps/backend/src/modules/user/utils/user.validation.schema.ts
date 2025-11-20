@@ -1,4 +1,4 @@
-import { RegisterDTO } from 'src/modules/auth/dto/auth.dto';
+import { RegisterDTO } from 'src/auth/dto/auth.dto';
 import z, { ZodType } from 'zod';
 import { updateUserDTO } from '../dto/user.dto';
 import { Role, Sport, UserStatus } from '@shared/prisma';

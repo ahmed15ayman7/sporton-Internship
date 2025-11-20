@@ -1,0 +1,104 @@
+{
+    "settings": {
+      "title": "الإعدادات",
+      "loadingSettings": "جاري تحميل الإعدادات...",
+      "editProfile": {
+        "title": "تعديل الحساب",
+        "name": "الاسم",
+        "namePlaceholder": "ادخل الاسم الحقيقي كما تريده في الملف الشخصي",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "ادخل البريد الإلكتروني للتحقق من الحساب",
+        "phone": "رقم الهاتف",
+        "phonePlaceholder": "ادخل رقم الهاتف للتحقق من الحساب",
+        "sportDetails": "بيانات الرياضة",
+        "sportType": "نوع الرياضة",
+        "sportTypePlaceholder": "ادخل نوع الرياضة",
+        "sport": "الرياضة",
+        "sportPlaceholder": "ادخل الرياضة",
+        "position": "المركز",
+        "positionPlaceholder": "ادخل المركز ان وجد",
+        "media": "الوسائط",
+        "profilePicture": "صورة الملف الشخصي",
+        "uploadPhotoHere": "رفع صورة الملف الشخصي هنا",
+        "supportsPngJpegFiles": "يدعم .png, .jpeg",
+        "chooseFile": "اختر ملف",
+        "coverPhoto": "صورة الغلاف",
+        "uploadCoverPhoto": "رفع صورة الغلاف",
+        "saveChanges": "حفظ التعديلات",
+        "saving": "جاري الحفظ...",
+        "cancel": "إلغاء",
+        "imageUploaded": "تم رفع الصورة بنجاح",
+        "errorOccurred": "حدث خطأ أثناء حفظ التعديلات",
+        "changesSaved": "تم حفظ التعديلات بنجاح"
+      },
+      "transactions": {
+        "title": "المعاملات",
+        "noTransactions": "لا يوجد معاملات",
+        "date": "التاريخ",
+        "amount": "المبلغ",
+        "status": "الحالة",
+        "viewInvoice": "عرض الفاتورة",
+        "contactSupport": "اتصل بالدعم"
+      },
+      "level": {
+        "title": "مستواك",
+        "currentLevel": "المستوى الحالي",
+        "progress": "التقدم",
+        "nextLevel": "المستوى التالي",
+        "youEarnedPoints": "لقد حصلت على <strong>{points}</strong> نقاط.",
+        "pointsToNextLevel": "للوصول إلى المستوى التالي بحاجة إلى <strong>{points}</strong> نقاط.",
+        "nextLevelGoal": "الهدف التالي للمستوى",
+        "recentMilestones": "الميلاديات الأخيرة",
+        "tipsToImprove": "نصائح للتحسين",
+        "yourJourneyStartsHere": "رحلتك تبدأ هنا!",
+        "participateInActivities": "شارك في الأنشطة، تحقق من إنجازاتك، واحصل على مستوى جديد لفتح إمكاناتك."
+      },
+      "support": {
+        "title": "الدعم والمساعدة",
+        "contactSupport": "اتصل بالدعم",
+        "faq": "FAQ",
+        "reportProblem": "الإبلاغ عن مشكلة",
+        "frequentlyAskedQuestions": "الأسئلة الشائعة",
+        "loadingFAQs": "جاري تحميل الأسئلة الشائعة",
+        "viewAllFAQs": "عرض الكل",
+        "contactUs": "اتصل بنا",
+        "emailUs": "اتصل بنا عبر البريد الإلكتروني",
+        "weWillReplyWithin24Hours": "سوف نرد على طلبك خلال 24 ساعة.",
+        "liveChat": "المحادثة الحية",
+        "callUs": "اتصل بنا عبر الهاتف",
+        "speakWithOurSupportTeamForUrgentIssues": "تواصل مع فريق الدعم للقضايا الحاجة.",
+        "shareYourIdeasOrReportAProblemToHelpUsImproveSporton": "شارك أفكارك أو الإبلاغ عن مشكلة لمساعدتنا في تحسين Sporton.",
+        "sendFeedback": "إرسال الملاحظات",
+        "available": "متاح {hours}."
+      },
+      "savedPosts": {
+        "title": "المنشورات المحفوظة",
+        "noSavedPosts": "لا يوجد منشورات محفوظة بعد",
+        "loadingSavedPosts": "جاري تحميل المنشورات المحفوظة"
+      },
+      "logout": {
+        "title": "تسجيل الخروج",
+        "confirmLogout": "هل أنت متأكد من رغبتك في تسجيل الخروج؟",
+        "cancel": "إلغاء",
+        "logout": "تسجيل الخروج"
+      },
+      "tabs": {
+        "editProfile": "تعديل الحساب",
+        "transactions": "المعاملات",
+        "level": "مستواك",
+        "support": "الدعم والمساعدة",
+        "savedPosts": "المنشورات المحفوظة",
+        "logout": "تسجيل الخروج"
+      },
+      "upload": {
+        "changePhoto": "تعديل الصورة",
+        "uploading": "جاري الرفع...",
+        "uploadFailed": "فشل الرفع"
+      },
+      "alerts": {
+        "changesSaved": "تم حفظ التعديلات بنجاح",
+        "errorOccurred": "حدث خطأ"
+      }
+    }
+  }
+  

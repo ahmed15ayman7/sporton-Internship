@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import api, { API_URL , ApiClient } from "./index";
 import axios from "axios";
-import { ContactUs, User } from "@sporton/interfaces";
+import { Admin, ContactUs, User } from "@sporton/interfaces";
 export interface PaginatedResponse<T> {
     data: T[];
     meta: {
@@ -92,8 +92,103 @@ export async function findUserById(id: string) {
   const response = await api.get(path);
   return response.data;
 }
+export async function updateUser(id: string, data: Partial<User>) {
+  let {path} = ApiClient.user.updateUser(id,data);
+  const response = await api.put(path,data);
+  return response.data;
+}
 export async function createContact(data: Partial<ContactUs>) {
   let {path} = ApiClient.contact.createContact(data);
   const response = await api.post(path,data);
   return response.data;
 }
+
+//?? AuthAdmin Api's Start
+export async function registerAdmin(data: Partial<User>) {
+  let {path} = ApiClient.authAdmin.register(data as User);
+const response = await api.post(path,data);
+return {status:response.status,data:response.data};
+}
+export async function loginAdmin(data: { email: string, password: string, rememberMe: boolean, device?: string, ip?: string, browser?: string, os?: string }): Promise<{status:number,data:any}> {
+try {
+  let {path} = ApiClient.authAdmin.login(data);
+  const response = await api.post(path,data);
+  return {status:response.status,data:response.data};
+} catch (error: any) {
+  console.log("error",error)
+  return {status:error.response.status,data:error.response.data};
+}
+}
+export async function logout_admin() {
+  let {path} = ApiClient.authAdmin.logout();
+  const response = await api.post(path);
+  return {status:response.status,data:response.data};
+}
+export async function refresh_tokenAdmin() {
+let {path} = ApiClient.authAdmin.refresh_token();
+const response = await api.post(path);
+return {status:response.status,data:response.data};
+}
+
+export async function resetPasswordAdmin(data: { token: string, password: string }) {
+let {path} = ApiClient.authAdmin.resetPassword(data);
+const response = await api.post(path,data);
+return {status:response.status,data:response.data};
+}
+export async function forgotPasswordAdmin(data: { email: string }) {
+let {path} = ApiClient.authAdmin.forgotPassword(data);
+const response = await api.post(path,data);
+return {status:response.status,data:response.data};
+}
+//!! AuthAdmin Api's End
+
+//?? Admins Api's Start
+export async function getAllAdmins(params?:PaginationInterface ): Promise<PaginatedResponse<Admin>> {
+  let { path } = ApiClient.admins.getAll();
+  const response = await api.get(path+`?${new URLSearchParams(params as any).toString()}`);
+  return response.data;
+}
+export async function getAdminById(id:string) {
+  let { path } = ApiClient.admins.getById(id);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+export async function createAdmin(data:Partial<Admin>) {
+  let { path } = ApiClient.admins.create(data);
+  const response = await api.post(path,data);
+  return {status:response.status,data:response.data};
+}
+export async function updateAdmin(id:string,data:Partial<Admin>) {
+  let { path } = ApiClient.admins.update(id,data);
+  const response = await api.put(path,data);
+  return {status:response.status,data:response.data};
+}
+export async function deleteAdmin(id:string) {
+  let { path } = ApiClient.admins.delete(id);
+  const response = await api.delete(path);
+  return {status:response.status,data:response.data};
+}
+export async function getAdminProfile(id:string) {
+  let { path } = ApiClient.admins.getAdminProfile(id);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+export async function getAdminNotifications(id:string) {
+  let { path } = ApiClient.admins.getAdminNotifications(id);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+//!! Admins Api's End
+
+//?? Monitor Api's Start
+export async function getDashboardOverview(userId:string) {
+  let { path } = ApiClient.monitor.getDashboardOverview(userId);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+export async function getDashboardMetrics(userId:string) {
+  let { path } = ApiClient.monitor.getDashboardMetrics(userId);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+//!! Monitor Api's End

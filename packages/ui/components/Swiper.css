@@ -1,0 +1,245 @@
+/* Swiper Custom Styles */
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  transition: all 0.3s ease;
+}
+
+/* Coverflow Effect */
+.swiper-coverflow {
+  perspective: 1000px;
+}
+
+.swiper-coverflow .swiper-slide {
+  transform-style: preserve-3d;
+}
+
+/* Cube Effect */
+.swiper-cube {
+  perspective: 1000px;
+}
+
+.swiper-cube .swiper-slide {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Fade Effect */
+.swiper-fade .swiper-slide {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.swiper-fade .swiper-slide-active {
+  opacity: 1;
+}
+
+/* Custom Arrows */
+.swiper-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.swiper-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.swiper-arrow-prev {
+  left: 16px;
+}
+
+.swiper-arrow-next {
+  right: 16px;
+}
+
+/* Custom Indicators */
+.swiper-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.swiper-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.swiper-indicator-active {
+  background: var(--color-primary-main);
+  transform: scale(1.2);
+}
+
+/* Progress Bar */
+.swiper-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.swiper-progress-bar {
+  height: 100%;
+  background: var(--color-primary-main);
+  transition: width 0.05s linear;
+}
+
+/* Play/Pause Button */
+.swiper-play-pause {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.swiper-play-pause:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+
+/* Slide Counter */
+.swiper-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swiper-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .swiper-arrow-prev {
+    left: 8px;
+  }
+  
+  .swiper-arrow-next {
+    right: 8px;
+  }
+  
+  .swiper-indicators {
+    bottom: 12px;
+  }
+  
+  .swiper-indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .swiper-play-pause {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .swiper-counter {
+    bottom: 12px;
+    right: 12px;
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .swiper-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .swiper-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .swiper-indicator {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .swiper-indicator:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Animation Classes */
+.swiper-slide-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.swiper-slide-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 0.7s ease;
+}
+
+.swiper-slide-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.swiper-slide-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.7s ease;
+}

@@ -14,6 +14,12 @@ export type AdminStatus = 'ACTIVE' | 'INACTIVE' | 'TERMINATED';
 
 export type AdminRole = 'SUPER_ADMIN' | 'ADMIN' | 'MODERATOR' | 'MONITOR' | 'MARKETING';
 
+export type ContentType = 'POST' | 'AD' | 'EVENT' | 'ARTICLE' | 'TRAINING' | 'JOB';
+
+export type PostVisibility = 'PUBLIC' | 'FRIENDS' | 'PRIVATE';
+
+export type EmojiType = 'LOVE' | 'HAHA' | 'LIKE' | 'ANGRY' | 'CLAP';
+
 export interface User {
   id: string;
   email: string;
@@ -35,8 +41,13 @@ export interface User {
   isOnline: boolean;
   isChoseRole: boolean;
   isProfileCompleted: boolean;
+  isDeleted: boolean;
   notifications: Notification[] | undefined;
   notificationsSender: Notification[] | undefined;
+  posts: Post[] | undefined;
+  comments: Comment[] | undefined;
+  reactions: Reaction[] | undefined;
+  postsViews: Post[] | undefined;
 }
 
 export interface Admin {
@@ -107,4 +118,67 @@ export interface ContactUs {
   message: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface Post {
+  id: string;
+  text?: string;
+  image?: string;
+  video?: string;
+  isAchievement: boolean;
+  author: User | undefined;
+  authorId: string;
+  createdAt: Date;
+  visibility: PostVisibility;
+  isSponsored: boolean;
+  isJob: boolean;
+  isEPortofolio: boolean;
+  isFake: boolean;
+  tags: string[];
+  location?: string;
+  reactions: Reaction[] | undefined;
+  comments: Comment[] | undefined;
+  views: User[] | undefined;
+  reposts: Post[] | undefined;
+  repostedFrom?: Post | undefined;
+  repostedFromId?: string;
+  engagementMetrics: EngagementMetrics[] | undefined;
+}
+
+export interface EngagementMetrics {
+  id: string;
+  contentId: string;
+  contentType: ContentType | undefined;
+  viewCount: number;
+  avgTimeSpent: number;
+  engagementRate: number;
+  bounceRate: number;
+  peakHours: any;
+  demographics: any;
+  createdAt: Date;
+  updatedAt: Date;
+  content: Post | undefined;
+}
+
+export interface Reaction {
+  id: string;
+  emoji: EmojiType | undefined;
+  user: User | undefined;
+  userId: string;
+  post?: Post | undefined;
+  postId?: string;
+  comment?: Comment | undefined;
+  commentId?: string;
+  createdAt: Date;
+}
+
+export interface Comment {
+  id: string;
+  content: string;
+  author: User | undefined;
+  authorId: string;
+  createdAt: Date;
+  post?: Post | undefined;
+  postId?: string;
+  reactions: Reaction[] | undefined;
 }

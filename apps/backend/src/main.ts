@@ -1,47 +1,44 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
+import helmet from 'helmet';
+import * as bodyParser from 'body-parser';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
+  const app = await NestFactory.create(AppModule, { cors: true });
 
-  const config = new DocumentBuilder()
-    .setTitle('API Documentation')
-    .setDescription('API documentation for the application')
-    .setVersion('1.0')
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        name: 'JWT',
-        description: 'Enter JWT token',
-        in: 'header',
-      },
-      'JWT-auth',
-    )
-    .build();
-
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/docs', app, document);
-
-
-  // تمكين CORS للسماح بالطلبات من الواجهة الأمامية
+  // Global pipes
+  app.useGlobalPipes(new ValidationPipe());
+  
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:4002',
-    credentials: true, // if you use cookies or auth headers
+    origin: "*",
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    credentials: true,
+    exposedHeaders: ['Content-Disposition'],
   });
 
+  // Security
+  app.use(helmet({ contentSecurityPolicy: false }));
+  app.use(bodyParser.json({ limit: '1gb' }));
+  app.use(bodyParser.urlencoded({ limit: '1gb', extended: true }));
 
-
-
-  await app.listen(process.env.PORT ?? 3000);
+  // Swagger setup
+  const config = new DocumentBuilder()
+    .setTitle('Sporton API')
+    .setDescription('The Sporton API description')
+    .setVersion('1.0')
+    .addBearerAuth()
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+  console.log(`Server is running on port ${process.env.PORT || 4000}`);
+  await app.listen(process.env.PORT || 4000);
   console.log(
-    `Application is running on: http://localhost:${process.env.PORT ?? 3000}`,
+    `Application is running on: http://localhost:${process.env.PORT ?? 4000}`,
   );
   console.log(
-    `Swagger documentation: http://localhost:${process.env.PORT ?? 3000}/api/docs`,
+    `Swagger documentation: http://localhost:${process.env.PORT ?? 4000}/api`,
   );
 }
 bootstrap();

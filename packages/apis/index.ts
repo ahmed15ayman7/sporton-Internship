@@ -4,7 +4,7 @@ import * as serverActions from './serverActions';
 import { ApiClient } from './api-documentation';
 
 //?? API Configuration
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'; // added /api
+export const API_URL = 'http://localhost:4000'; // added /api
 
 interface TokenPayload {
   exp: number;
@@ -105,8 +105,8 @@ class AuthService {
       this.stopRefreshTokenTimer();
       
       if (typeof window !== 'undefined') {
-            if(!window.location.href.includes('/auth/signin') && !window.location.href.includes('/auth/signup') && !window.location.href.includes('/auth/reset-password') && !window.location.href.includes('/auth/forgot-password') && !window.location.href.includes('/auth/callback') && !window.location.href.includes('/auth/error')){
-            window.location.href = '/auth/signin';
+            if(!window.location.href.includes('/auth-admin/signin') && !window.location.href.includes('/auth-admin/signup') && !window.location.href.includes('/auth-admin/reset-password') && !window.location.href.includes('/auth-admin/forgot-password') && !window.location.href.includes('/auth-admin/callback') && !window.location.href.includes('/auth-admin/error')){
+            window.location.href = '/auth-admin/signin';
         }
       }
     }
@@ -188,17 +188,58 @@ export const authApi = {
   getRefreshTokenFromCookieServer: serverActions.getRefreshTokenFromCookieServer,
 }
 //!! Auth Api's End
-
+//?? AuthAdmin Api's Start
+export const authAdminApi = {
+  registerAdmin: serverActions.registerAdmin,
+  loginAdmin: serverActions.loginAdmin,
+  logoutAdmin: serverActions.logout_admin,
+  refreshToken: serverActions.refresh_tokenAdmin,
+  forgotPassword: serverActions.forgotPasswordAdmin,
+  resetPassword: serverActions.resetPasswordAdmin,
+};
+//!! AuthAdmin Api's End
 //?? User Api's Start
 export const userApi = {
   findUserById: serverActions.findUserById,
+  updateUser: serverActions.updateUser,
 }
 //!! User Api's End
+//?? Admins Api's Start
+export const adminsApi = {
+  getAllAdmins: serverActions.getAllAdmins,
+  getAdminById: serverActions.getAdminById,
+  createAdmin: serverActions.createAdmin,
+  updateAdmin: serverActions.updateAdmin,
+  deleteAdmin: serverActions.deleteAdmin,
+  getAdminProfile: serverActions.getAdminProfile,
+  getAdminNotifications: serverActions.getAdminNotifications,
+};
+//!! Admins Api's End
+//?? Monitor Api's Start
+export const monitorApi = {
+  getDashboardOverview: serverActions.getDashboardOverview,
+  getDashboardMetrics: serverActions.getDashboardMetrics,
+};
+//!! Monitor Api's End
 
 //?? Contact Api's Start
 export const contactUs = {
   createContact: serverActions.createContact,
 }
+// WebSocket Client
+export { wsClient, WebSocketClient } from './websocketClient';
+export type { UserStatusEvent, UserStatusCallback } from './websocketClient';
+
+// WebSocket Provider and Hooks
+export { 
+    WebSocketProvider, 
+    useWebSocket, 
+    useWebSocketConnection, 
+    useOnlineUsers, 
+    useWebSocketMessage 
+} from './WebSocketProvider';
+
 //!! Contact Api's End
 export default api;
 export { ApiClient };
+export { authService };
