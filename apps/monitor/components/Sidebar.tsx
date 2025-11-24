@@ -5,14 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   HomeIcon, 
   ChartBarIcon, 
-  DocumentChartBarIcon, 
   ClockIcon, 
   HeartIcon, 
   Cog6ToothIcon, 
   ArrowRightOnRectangleIcon,
   UserCircleIcon,
   ChevronLeftIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  UsersIcon,
+  FolderIcon,
+  ChartPieIcon
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../hooks/useAuth';
 import Link from 'next/link';
@@ -20,7 +22,12 @@ import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { icon: HomeIcon, label: 'Home', href: '/' },
+  { icon: UsersIcon, label: 'Accounts', href: '/accounts' },
+  { icon: FolderIcon, label: 'Content', href: '/content' },
   { icon: ChartBarIcon, label: 'Dashboard', href: '/dashboard' },
+  { icon: ChartPieIcon, label: 'Statistics', href: '/statistics' },
+  { icon: ClockIcon, label: 'Activity', href: '/activity' },
+  { icon: HeartIcon, label: 'Health', href: '/health' },
   { icon: Cog6ToothIcon, label: 'Settings', href: '/settings' },
 ];
 
@@ -57,7 +64,7 @@ export const Sidebar = () => {
                 exit={{ opacity: 0, x: -20 }}
                 className="flex items-center space-x-2"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-main to-primary-light rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary-main to-secondary-main rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">S</span>
                 </div>
                 <span className="text-lg font-semibold text-gray-900">SPORTON</span>
@@ -68,7 +75,7 @@ export const Sidebar = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="w-8 h-8 bg-gradient-to-br from-primary-main to-primary-light rounded-lg flex items-center justify-center mx-auto"
+                className="w-8 h-8 bg-gradient-to-br from-primary-main to-secondary-main rounded-lg flex items-center justify-center mx-auto"
               >
                 <span className="text-white font-bold text-sm">S</span>
               </motion.div>
@@ -80,7 +87,7 @@ export const Sidebar = () => {
             className="p-1 rounded-lg hover:bg-gray-100 transition-colors"
           >
             {isExpanded ? (
-                <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
+              <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
             ) : (
               <ChevronRightIcon className="w-5 h-5 text-gray-600" />
             )}
@@ -91,7 +98,7 @@ export const Sidebar = () => {
       {/* User Profile */}
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-main to-primary-light rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-primary-main to-secondary-main rounded-full flex items-center justify-center">
             <UserCircleIcon className="w-6 h-6 text-white" />
           </div>
           <AnimatePresence mode="wait">
@@ -126,7 +133,7 @@ export const Sidebar = () => {
                 className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-colors ${
                   isActive
                     ? 'bg-primary-main text-white shadow-lg'
-                      : 'text-gray-700 hover:bg-gray-100 '
+                    : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 <item.icon className="w-6 h-6 flex-shrink-0" />

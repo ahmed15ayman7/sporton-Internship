@@ -1,3 +1,5 @@
+export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
+
 export type UserStatus = 'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'BANNED' | 'PENDING';
 
 export type Sport = 'FOOTBALL' | 'RUNNING' | 'TENNIS' | 'BASKETBALL' | 'SWIMMING' | 'KARATE' | 'DIVING' | 'FITNESS' | 'HORSE_RIDING' | 'CYCLING' | 'SKATING' | 'HANDBALL' | 'GOLF' | 'HOCKEY' | 'CHESS' | 'KUNG_FU' | 'BOXING' | 'BOWLING' | 'VOLLEYBALL' | 'LONG_JUMP';
@@ -46,6 +48,7 @@ export interface User {
   city?: string;
   language?: string;
   sport?: Sport | undefined;
+  gender?: Gender | undefined;
   isOnline: boolean;
   isChoseRole: boolean;
   isProfileCompleted: boolean;
@@ -204,6 +207,8 @@ export interface Subscription {
   features: string[];
   billingPeriod?: string;
   payments: Payment[] | undefined;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface Payment {
@@ -217,4 +222,6 @@ export interface Payment {
   description?: string;
   subscription?: Subscription | undefined;
   subscriptionId?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

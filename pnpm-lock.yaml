@@ -517,6 +517,9 @@ importers:
       framer-motion:
         specifier: ^11.18.2
         version: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      lucide-react:
+        specifier: ^0.400.0
+        version: 0.400.0(react@19.0.0)
       next:
         specifier: 15.3.5
         version: 15.3.5(@playwright/test@1.56.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -548,6 +551,64 @@ importers:
       typescript:
         specifier: ^5
         version: 5.9.2
+
+  apps/monitor2:
+    dependencies:
+      '@heroicons/react':
+        specifier: ^2.2.0
+        version: 2.2.0(react@19.0.0)
+      '@sporton/apis':
+        specifier: workspace:*
+        version: link:../../packages/apis
+      '@sporton/auth-admin':
+        specifier: workspace:*
+        version: link:../../packages/auth-admin
+      '@sporton/interfaces':
+        specifier: workspace:*
+        version: link:../../packages/interfaces
+      '@sporton/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@tanstack/react-query':
+        specifier: ^5.85.5
+        version: 5.90.7(react@19.0.0)
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.6.1
+      framer-motion:
+        specifier: ^11.18.2
+        version: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next:
+        specifier: 15.3.5
+        version: 15.3.5(@playwright/test@1.56.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      sonner:
+        specifier: ^2.0.6
+        version: 2.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: ^4
+        version: 4.1.17
+      '@types/node':
+        specifier: ^20
+        version: 20.19.24
+      '@types/react':
+        specifier: ^19
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: ^19
+        version: 19.2.2(@types/react@19.2.2)
+      tailwindcss:
+        specifier: ^4
+        version: 4.1.17
+      typescript:
+        specifier: ^5
+        version: 5.9.3
 
   packages/apis:
     dependencies:

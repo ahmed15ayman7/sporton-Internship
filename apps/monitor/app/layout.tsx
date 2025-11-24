@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: "Comprehensive monitoring and analytics dashboard for SPORTON platform",
 };
 
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+
 export default function RootLayout({
   children,
 }: Readonly<{

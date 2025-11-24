@@ -180,15 +180,149 @@ export async function getAdminNotifications(id:string) {
 }
 //!! Admins Api's End
 
-//?? Monitor Api's Start
-export async function getDashboardOverview(userId:string) {
-  let { path } = ApiClient.monitor.getDashboardOverview(userId);
+
+//?? Dashboard Actions Start
+export async function getDashboardOverview(params?: {
+  userId?: string;
+  teamId?: string;
+  matchId?: string;
+  sport?: string;
+  role?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  status?: string;
+  category?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getOverview(params);
+  const queryParams = params ? `?${new URLSearchParams(params as any).toString()}` : '';
+  const response = await api.get(path + queryParams);
+  return {status:response.status,data:response.data};
+}
+
+export async function getDashboardStatistics(params?: {
+  userId?: string;
+  teamId?: string;
+  matchId?: string;
+  sport?: string;
+  role?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  status?: string;
+  category?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getStatistics(params);
+  const queryParams = params ? `?${new URLSearchParams(params as any).toString()}` : '';
+  const response = await api.get(path + queryParams);
+  return {status:response.status,data:response.data};
+}
+
+export async function getDashboardFilters(): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getFilters();
   const response = await api.get(path);
   return {status:response.status,data:response.data};
 }
-export async function getDashboardMetrics(userId:string) {
-  let { path } = ApiClient.monitor.getDashboardMetrics(userId);
+
+export async function getDashboardMetrics(params?: {
+  userId?: string;
+  teamId?: string;
+  matchId?: string;
+  sport?: string;
+  role?: string;
+  dateFrom?: string;
+  dateTo?: string;
+  status?: string;
+  category?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getMetrics(params);
+  const queryParams = params ? `?${new URLSearchParams(params as any).toString()}` : '';
+  const response = await api.get(path + queryParams);
+  return {status:response.status,data:response.data};
+}
+
+export async function getDashboardActivity(params?: {
+  userId?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getActivity(params);
+  const queryParams = params ? `?${new URLSearchParams(params as any).toString()}` : '';
+  const response = await api.get(path + queryParams);
+  return {status:response.status,data:response.data};
+}
+
+export async function getDashboardHealth(): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.dashboard.getHealth();
   const response = await api.get(path);
   return {status:response.status,data:response.data};
 }
-//!! Monitor Api's End
+//!! Dashboard Actions End
+
+//?? Monitor Actions Start
+export async function getMonitorSummary(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getSummary(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorAccountsCategories(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getAccountsCategories(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorSubscriptions(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getSubscriptions(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorGenderChart(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getGenderChart(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorMediaCount(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getMediaCount(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorTopEngagement(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+  limit?: number;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getTopEngagement(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+
+export async function getMonitorSportsChart(params?: {
+  dateFrom?: string;
+  dateTo?: string;
+}): Promise<{status:number,data:any}> {
+  let { path } = ApiClient.monitor.getSportsChart(params);
+  const response = await api.get(path);
+  return {status:response.status,data:response.data};
+}
+//!! Monitor Actions End

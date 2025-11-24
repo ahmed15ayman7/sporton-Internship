@@ -13,7 +13,7 @@ import {
   import { IsPublic } from 'src/decorators/public.decorator';
   
   @Injectable()
-  export class AdminAuthGuard implements CanActivate {
+  export class JwtAuthAdminGuard implements CanActivate {
     constructor(
       private jwtService: JwtService,
       private prismaService: PrismaService,

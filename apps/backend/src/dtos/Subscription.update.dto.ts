@@ -39,4 +39,14 @@ export class UpdateSubscriptionDto {
   // Field: billingPeriod, Type: string
   @Column()
   billingPeriod?: string;
+
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: createdAt, Type: Date
+  @Column()
+  createdAt: Date;
+
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: updatedAt, Type: Date
+  @Column()
+  updatedAt: Date;
 }

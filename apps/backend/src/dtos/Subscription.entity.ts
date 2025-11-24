@@ -56,4 +56,14 @@ export class SubscriptionEntity {
   // Field: payments, Type: Payment[]
   @Column()
   payments: Payment[];
+
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: createdAt, Type: Date
+  @Column()
+  createdAt: Date;
+
+  @ApiProperty({ type: "string", format: "date-time" })
+  // Field: updatedAt, Type: Date
+  @Column()
+  updatedAt: Date;
 }

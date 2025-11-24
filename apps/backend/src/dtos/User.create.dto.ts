@@ -3,6 +3,7 @@ import {
   Role,
   UserStatus,
   Sport,
+  Gender,
   Notification,
   Post,
   Comment,
@@ -89,6 +90,11 @@ export class CreateUserDto {
   // Field: sport, Type: Sport
   @Column()
   sport?: Sport;
+
+  @ApiProperty({ enum: Gender })
+  // Field: gender, Type: Gender
+  @Column()
+  gender?: Gender;
 
   @ApiProperty({ type: "boolean" })
   // Field: isOnline, Type: boolean

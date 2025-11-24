@@ -9,6 +9,7 @@ import {
   Role,
   UserStatus,
   Sport,
+  Gender,
   Notification,
   Post,
   Comment,
@@ -100,6 +101,11 @@ export class UserEntity {
   // Field: sport, Type: Sport
   @Column()
   sport?: Sport;
+
+  @ApiProperty({ enum: Gender, nullable: true })
+  // Field: gender, Type: Gender
+  @Column()
+  gender?: Gender;
 
   @ApiProperty({ type: "boolean" })
   // Field: isOnline, Type: boolean

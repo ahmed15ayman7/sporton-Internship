@@ -6,8 +6,9 @@ import { ContactModule } from './modules/contact/contact.module';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core/constants';
 import { AuthGuard } from './auth/guards/jwt-auth.guard';
-import { AdminsModule } from './modules/admin/admins.module';
+import { AdminsModule } from './modules/admins/admins.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { MonitorModule } from './modules/monitor/monitor.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PrismaModule } from './prisma/prisma.module';
     AuthAdminModule,
     AdminsModule,
     UserModule,
+    MonitorModule,
     ContactModule,
     ConfigModule.forRoot({
       isGlobal: true,

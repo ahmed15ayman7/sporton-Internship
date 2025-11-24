@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { monitorApi } from '@sporton/apis';
+import { dashboardApi } from '@sporton/apis';
 import { useAuth } from './useAuth';
 
 export const useDashboard = () => {
@@ -9,14 +9,14 @@ export const useDashboard = () => {
 
   const overviewQuery = useQuery({
     queryKey: ['dashboard', 'overview', admin?.id],
-    queryFn: () => monitorApi.getDashboardOverview(admin?.id!),
+    queryFn: () => dashboardApi.getDashboardOverview({ userId: admin?.id }),
     enabled: !!admin?.id,
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
   const metricsQuery = useQuery({
     queryKey: ['dashboard', 'metrics', admin?.id],
-    queryFn: () => monitorApi.getDashboardMetrics(admin?.id!),
+    queryFn: () => dashboardApi.getDashboardMetrics({ userId: admin?.id }),
     enabled: !!admin?.id,
     staleTime: 5 * 60 * 1000, // 5 minutes
   });

@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { AdminsService } from '../modules/admin/admins.service';
+import { AdminsService } from '../modules/admins/admins.service';
 import * as bcrypt from 'bcryptjs';
 import { Admin } from '@shared/prisma';
 import { RegisterDto } from './dto/register.dto';

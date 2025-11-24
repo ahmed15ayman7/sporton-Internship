@@ -215,13 +215,28 @@ export const adminsApi = {
   getAdminNotifications: serverActions.getAdminNotifications,
 };
 //!! Admins Api's End
+
+//?? Dashboard Api's Start
+export const dashboardApi = {
+  getDashboardOverview: serverActions.getDashboardOverview,
+  getDashboardStatistics: serverActions.getDashboardStatistics,
+  getDashboardFilters: serverActions.getDashboardFilters,
+  getDashboardMetrics: serverActions.getDashboardMetrics,
+  getDashboardActivity: serverActions.getDashboardActivity,
+  getDashboardHealth: serverActions.getDashboardHealth,
+};
+//!! Dashboard Api's End
 //?? Monitor Api's Start
 export const monitorApi = {
-  getDashboardOverview: serverActions.getDashboardOverview,
-  getDashboardMetrics: serverActions.getDashboardMetrics,
+  getMonitorSummary: serverActions.getMonitorSummary,
+  getMonitorAccountsCategories: serverActions.getMonitorAccountsCategories,
+  getMonitorSubscriptions: serverActions.getMonitorSubscriptions,
+  getMonitorGenderChart: serverActions.getMonitorGenderChart,
+  getMonitorMediaCount: serverActions.getMonitorMediaCount,
+  getMonitorTopEngagement: serverActions.getMonitorTopEngagement,
+  getMonitorSportsChart: serverActions.getMonitorSportsChart,
 };
 //!! Monitor Api's End
-
 //?? Contact Api's Start
 export const contactUs = {
   createContact: serverActions.createContact,

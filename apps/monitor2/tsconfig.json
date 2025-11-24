@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@sporton/ui": ["../../packages/ui/src"],
+      "@sporton/assets": ["../../packages/assets/src"],
+      "@sporton/apis": ["../../packages/apis/src"],
+      "@sporton/interfaces": ["../../packages/interfaces/index.ts"],
+      "@sporton/auth": ["../../packages/auth/src"]
+    },
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "types/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"]
+} 

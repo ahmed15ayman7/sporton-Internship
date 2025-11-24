@@ -53,7 +53,7 @@ export const ChartWrapper = ({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-lg z-10"
+              className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-lg z-10"
           >
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-main"></div>
           </motion.div>

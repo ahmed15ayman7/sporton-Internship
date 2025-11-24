@@ -38,6 +38,7 @@ model User {
   city      String? // المدينة
   language  String? // اللغة المفضلة
   sport     Sport? // الرياضة المفضلة
+  gender    Gender?
   isOnline  Boolean @default(false)
   isChoseRole Boolean @default(false)
   isProfileCompleted Boolean @default(false)
@@ -50,6 +51,11 @@ model User {
   postsViews Post[] @relation("PostViews")
   payments Payment[]
   subscriptions Subscription[]
+}
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
 }
 enum UserStatus {
   ACTIVE // نشط
@@ -307,6 +313,8 @@ model Subscription {
   features       String[]
   billingPeriod  String?            // 'monthly' or 'yearly'
   payments       Payment[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model Payment {
@@ -320,6 +328,9 @@ model Payment {
   description String?
   subscription Subscription? @relation(fields: [subscriptionId], references: [id])
   subscriptionId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
 }
 
 // الأنواع المختلفة للاشتراكات في المنصة

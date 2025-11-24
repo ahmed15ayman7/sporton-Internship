@@ -1,5 +1,3 @@
-// Import styles
-import './styles.css';
 // UI Components
 export { Button } from './components/Button';
 export {  Input } from './components/Input';

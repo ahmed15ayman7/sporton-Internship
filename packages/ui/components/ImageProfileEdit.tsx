@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef } from 'react'
 import { Avatar } from './Avatar'
 import { Camera } from 'lucide-react'

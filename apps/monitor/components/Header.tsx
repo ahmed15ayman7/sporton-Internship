@@ -47,7 +47,7 @@ export const Header = () => {
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2 border border-gray-300  rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-primary-main focus:border-transparent transition-all duration-200"
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-primary-main focus:border-transparent transition-all duration-200"
             />
           </motion.div>
 
@@ -70,7 +70,7 @@ export const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
-            className="w-10 h-10 bg-gradient-to-br from-primary-main to-secondary-main rounded-full flex items-center justify-center cursor-pointer"
+            className="cursor-pointer"
           >
             <Avatar src={admin?.image || '/images/default-avatar.png'} alt={admin?.name || ''} className="text-white font-semibold text-sm" fallback={admin?.name?.charAt(0)} />
           </motion.div>

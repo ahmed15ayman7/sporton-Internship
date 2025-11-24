@@ -1,7 +1,7 @@
 import { RegisterDTO } from 'src/auth/dto/auth.dto';
 import z, { ZodType } from 'zod';
 import { updateUserDTO } from '../dto/user.dto';
-import { Role, Sport, UserStatus } from '@shared/prisma';
+import { Gender, Role, Sport, UserStatus } from '@shared/prisma';
 
 export const validationSchema = z.object({
   name: z.string().min(2).max(100),
@@ -22,6 +22,7 @@ export const validationSchema = z.object({
   city: z.string().min(1).max(255),
   language: z.string().min(1).max(255),
   sport: z.nativeEnum(Sport),
+  gender: z.nativeEnum(Gender),
 }) satisfies ZodType<RegisterDTO>;
 
 export const updateUserSchema = validationSchema
