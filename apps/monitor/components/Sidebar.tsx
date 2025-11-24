@@ -24,10 +24,10 @@ const menuItems = [
   { icon: HomeIcon, label: 'Home', href: '/' },
   { icon: UsersIcon, label: 'Accounts', href: '/accounts' },
   { icon: FolderIcon, label: 'Content', href: '/content' },
-  { icon: ChartBarIcon, label: 'Dashboard', href: '/dashboard' },
-  { icon: ChartPieIcon, label: 'Statistics', href: '/statistics' },
-  { icon: ClockIcon, label: 'Activity', href: '/activity' },
-  { icon: HeartIcon, label: 'Health', href: '/health' },
+  // { icon: ChartBarIcon, label: 'Dashboard', href: '/dashboard' },
+  // { icon: ChartPieIcon, label: 'Statistics', href: '/statistics' },
+  // { icon: ClockIcon, label: 'Activity', href: '/activity' },
+  // { icon: HeartIcon, label: 'Health', href: '/health' },
   { icon: Cog6ToothIcon, label: 'Settings', href: '/settings' },
 ];
 
