@@ -6,6 +6,8 @@ import { Footer } from '../components/Footer';
 import { useAuth } from '../hooks/useAuth';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import InfoCard from '../components/infoCard';
+import { DynamicChartExample } from '@sporton/ui/components/DynamicChartExample';
 
 export default function HomePage() {
   const { admin, isLoading } = useAuth();
@@ -25,10 +27,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar />
-      
+
       <div className="flex-1 flex flex-col">
         <Header />
-        
+
         <main className="flex-1 p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,92 +48,55 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">
-                      Total Users
-                    </p>
-                    <p className="text-2xl font-bold text-gray-900">
-                      {admin.role || 'N/A'}
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-600 text-xl">👥</span>
-                  </div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">
-                      Active Sessions
-                    </p>
-                    <p className="text-2xl font-bold text-gray-900">
-                      1
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <span className="text-green-600 text-xl">🟢</span>
-                  </div>
-                </div>
-              </motion.div>
+              <InfoCard
+                title='Total Accounts'
+                value={1250}
+                icon='👥'
+                textColor='text-blue-600'
+                iconColor='bg-blue-100'
+              />
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                      <p className="text-sm font-medium text-gray-600">
-                      System Status
-                    </p>
-                    <p className="text-2xl font-bold text-green-600">
-                      Online
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <span className="text-green-600 text-xl">✅</span>
-                  </div>
-                </div>
-              </motion.div>
+              <InfoCard
+                title='Total Posts'
+                value={3000}
+                icon='📝'
+                textColor='text-green-600'
+                iconColor='bg-green-100'
+              />
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">
-                      Last Login
-                    </p>
-                    <p className="text-2xl font-bold text-gray-900">
-                      Now
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                      <span className="text-purple-600 text-xl">🕐</span>
-                  </div>
-                </div>
-              </motion.div>
+              <InfoCard
+                title='Active Accounts'
+                value={875}
+                icon='🔥'
+                textColor='text-red-600'
+                iconColor='bg-red-100'
+              />
+
+
+              <InfoCard
+                title='New Accounts Daily'
+                value={150}
+                icon='🆕'
+                textColor='text-yellow-600'
+                iconColor='bg-yellow-100'
+              />
+
+              <InfoCard
+                title='New Posts Daily'
+                value={200}
+                icon='🆕'
+                textColor='text-purple-600'
+                iconColor='bg-purple-100'
+              />
+
             </div>
 
-            <motion.div
+
+            {/* <DynamicChartExample /> */}
+
+            {/* Quick action Part */}
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -151,10 +116,10 @@ export default function HomePage() {
                   System Health
                 </Link>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </main>
-        
+
         <Footer />
       </div>
     </div>
