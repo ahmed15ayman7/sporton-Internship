@@ -64,8 +64,8 @@ export const Sidebar = () => {
                 exit={{ opacity: 0, x: -20 }}
                 className="flex items-center space-x-2"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-main to-secondary-main rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">S</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-primary-main to-primary-light rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">{admin?.name.charAt(0)}</span>
                 </div>
                 <span className="text-lg font-semibold text-gray-900">SPORTON</span>
               </motion.div>
@@ -75,9 +75,9 @@ export const Sidebar = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="w-8 h-8 bg-gradient-to-br from-primary-main to-secondary-main rounded-lg flex items-center justify-center mx-auto"
+                className="w-8 h-8 bg-gradient-to-br from-primary-main to-primary-light rounded-lg flex items-center justify-center mx-auto"
               >
-                <span className="text-white font-bold text-sm">S</span>
+                <span className="text-white font-bold text-sm">{admin?.name.charAt(0)}</span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -98,7 +98,7 @@ export const Sidebar = () => {
       {/* User Profile */}
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-main to-secondary-main rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-primary-main to-primary-light rounded-full flex items-center justify-center">
             <UserCircleIcon className="w-6 h-6 text-white" />
           </div>
           <AnimatePresence mode="wait">
